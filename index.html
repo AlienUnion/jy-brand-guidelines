@@ -2070,35 +2070,67 @@ let currentLogoBg = 'white';
 async function loadLogo(type, bg) {
   const mount = document.getElementById('logoMount');
   const stage = document.getElementById('logoStage');
-  // file suffix: white bg -> no suffix; navy -> w; mist -> no suffix
+  // file suffix: white bg -> no suffix (deep navy logo); navy/dark bg -> w (mist white logo)
   let suffix = '';
-  if (bg === 'navy') suffix = 'w'; // white logo on navy
-  // else no suffix (deep navy logo on light bg)
+  if (bg === 'navy') suffix = 'w';
   const filename = `logos/JY_logo_${type}${suffix}.svg`;
+
+  // Clear mount immediately
+  mount.innerHTML = '';
 
   try {
     const res = await fetch(filename);
-    if (!res.ok) throw new Error('fetch failed');
-    const svg = await res.text();
-    mount.innerHTML = svg;
-    // Force fill color based on bg variant
-    const svgEl = mount.querySelector('svg');
-    if (svgEl) {
-      // Remove embedded style and set fill explicitly
-      const styleEl = svgEl.querySelector('style');
-      if (styleEl) styleEl.remove();
-      const fillColor = (bg === 'navy') ? '#F3F7FA' : '#103057';
-      svgEl.querySelectorAll('path').forEach(p => {
-        p.setAttribute('fill', fillColor);
-        p.removeAttribute('class');
-      });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const svgText = await res.text();
+
+    // Parse as XML to properly handle <?xml?> declaration and multiple style classes
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(svgText, 'image/svg+xml');
+    const parseError = doc.querySelector('parsererror');
+    if (parseError) throw new Error('SVG parse error');
+
+    const svgEl = doc.documentElement;
+    if (!svgEl || svgEl.nodeName !== 'svg') throw new Error('No SVG root');
+
+    // Determine target fill color based on background
+    const fillColor = (bg === 'navy') ? '#F3F7FA' : '#103057';
+
+    // Strategy: rewrite the embedded <style> block — only change `fill: #103057` and `fill: #F3F7FA`
+    // to the target color, but leave `fill: none` and stroke definitions alone.
+    // This preserves stroke paths (e.g. logo 02's .st0 separators) without recoloring them.
+    const styleEl = svgEl.querySelector('style');
+    if (styleEl) {
+      let css = styleEl.textContent;
+      // Replace any fill that is NOT 'none' with the target color
+      css = css.replace(/fill\s*:\s*#[0-9a-fA-F]{3,8}/g, 'fill: ' + fillColor);
+      styleEl.textContent = css;
     }
+
+    // Also set fill attribute on any path that has no class (direct fill attribute fallback)
+    svgEl.querySelectorAll('path').forEach(p => {
+      if (!p.getAttribute('class') && !p.getAttribute('fill')) {
+        p.setAttribute('fill', fillColor);
+      }
+    });
+
+    // Ensure SVG scales properly within container
+    svgEl.removeAttribute('width');
+    svgEl.removeAttribute('height');
+    svgEl.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    svgEl.style.maxWidth = '100%';
+    svgEl.style.maxHeight = '240px';
+    svgEl.style.width = 'auto';
+    svgEl.style.height = 'auto';
+
+    // Import node from XML document into HTML document, then append
+    const importedSvg = document.importNode(svgEl, true);
+    mount.appendChild(importedSvg);
   } catch (e) {
-    // Fallback: show only the C-mark inline SVG with note
+    console.warn('[loadLogo] failed:', filename, e);
     mount.innerHTML = `<div style="text-align:center;color:${bg==='navy'?'#F3F7FA':'#647E8F'};font-size:14px;padding:40px;">
-      <div style="font-size:11px;letter-spacing:2px;margin-bottom:8px;">FILE NOT FOUND</div>
-      <div style="font-family: monospace;">${filename}</div>
-      <div style="font-size:12px;margin-top:16px;">請確認 logos/ 資料夾與 SVG 檔案已正確上傳</div>
+      <div style="font-size:11px;letter-spacing:2px;margin-bottom:8px;">LOGO LOAD ERROR</div>
+      <div style="font-family: monospace;font-size:13px;">${filename}</div>
+      <div style="font-size:12px;margin-top:16px;opacity:.7;">${e.message}</div>
     </div>`;
   }
 
