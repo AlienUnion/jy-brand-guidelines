@@ -4,8 +4,8 @@
 
 ## 線上版
 
-啟用 GitHub Pages 後,網址為:
-`https://你的-github-帳號.github.io/jy-brand-guidelines/`
+[啟用 GitHub Pages 後,網址為:
+`https://你的-github-帳號.github.io/jy-brand-guidelines/`](https://alienunion.github.io/jy-brand-guidelines/)
 
 ## 內容範圍
 
