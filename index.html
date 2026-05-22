@@ -1,0 +1,2299 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>眾悅車用精品 JY｜Brand Guidelines v1.4</title>
+<meta name="description" content="眾悅車用精品 JY Brand Guidelines v1.4 — 品牌識別、色彩字體、圖形圖示、品牌應用">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+/* ============================================================
+   JY Brand Guidelines v1.4 — Design Tokens
+   ============================================================ */
+:root {
+  /* Primary Palette */
+  --jy-navy: #103057;
+  --jy-steel: #647E8F;
+  --jy-mist: #F3F7FA;
+  --jy-white: #FFFFFF;
+
+  /* Status Colors */
+  --jy-action: #FF653F;
+  --jy-promo: #FDC54D;
+  --jy-alert: #E0103C;
+  --jy-trust: #457D59;
+
+  /* Category Colors */
+  --cat-tool: #383838;
+  --cat-detail: #45A8A8;
+  --cat-film: #A187C9;
+  --cat-accessory: #D6A94A;
+  --cat-other: #D15858;
+
+  /* UI Tokens */
+  --line: #E0E0E0;
+  --line-strong: #C8D2DA;
+  --text: #1A2333;
+  --text-mute: #647E8F;
+  --bg: #FFFFFF;
+  --bg-subtle: #F3F7FA;
+  --bg-deep: #0B2342;
+
+  /* Layout */
+  --nav-w: 260px;
+  --max-w: 1180px;
+  --gap-xs: 4px;
+  --gap-s: 8px;
+  --gap-m: 16px;
+  --gap-l: 24px;
+  --gap-xl: 48px;
+  --gap-xxl: 96px;
+}
+
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body {
+  font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img, svg { max-width: 100%; display: block; }
+a { color: var(--jy-navy); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code, .mono {
+  font-family: 'SF Mono', Monaco, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  letter-spacing: 0;
+}
+
+/* ============================================================
+   Layout: Sidebar Nav + Main
+   ============================================================ */
+.app {
+  display: grid;
+  grid-template-columns: var(--nav-w) 1fr;
+  min-height: 100vh;
+}
+
+/* ---- Sidebar ---- */
+.nav {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--bg-deep);
+  color: var(--jy-mist);
+  padding: 32px 24px;
+  border-right: 1px solid var(--jy-navy);
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(243,247,250,0.15);
+}
+.nav-brand-mark {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+}
+.nav-brand-mark svg { width: 100%; height: 100%; }
+.nav-brand-mark svg path { fill: var(--jy-mist) !important; }
+.nav-brand-text {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+}
+.nav-brand-text .sub {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: var(--jy-steel);
+  margin-top: 2px;
+}
+.nav-list { list-style: none; }
+.nav-list li { margin-bottom: 2px; }
+.nav-list a {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 10px;
+  font-size: 13px;
+  color: rgba(243,247,250,0.7);
+  border-radius: 4px;
+  transition: all .15s ease;
+  text-decoration: none;
+}
+.nav-list a:hover {
+  background: rgba(243,247,250,0.05);
+  color: var(--jy-mist);
+  text-decoration: none;
+}
+.nav-list a.active {
+  background: rgba(255,101,63,0.12);
+  color: var(--jy-mist);
+  border-left: 2px solid var(--jy-action);
+  padding-left: 8px;
+}
+.nav-list a .num {
+  font-size: 10px;
+  color: var(--jy-steel);
+  font-weight: 400;
+  min-width: 22px;
+}
+.nav-meta {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(243,247,250,0.15);
+  font-size: 11px;
+  line-height: 1.7;
+  color: rgba(243,247,250,0.5);
+}
+
+/* ---- Main ---- */
+.main {
+  padding: 64px 64px 96px 64px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.main-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero {
+  background: var(--bg-deep);
+  color: var(--jy-mist);
+  padding: 80px 64px;
+  margin: -64px -64px 64px -64px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.hero-mark {
+  width: 88px;
+  height: 88px;
+  margin-bottom: 32px;
+  opacity: 0.95;
+}
+.hero-mark svg path { fill: var(--jy-mist) !important; }
+.hero-eyebrow {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--jy-steel);
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+.hero h1 .em { color: var(--jy-action); }
+.hero-sub {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(243,247,250,0.75);
+  max-width: 640px;
+  margin-bottom: 40px;
+}
+.hero-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 24px 0 0 0;
+  border-top: 1px solid rgba(243,247,250,0.15);
+  max-width: 720px;
+}
+.hero-meta-item .k {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--jy-steel);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.hero-meta-item .v {
+  font-size: 14px;
+  color: var(--jy-mist);
+  font-weight: 500;
+}
+
+/* ============================================================
+   Sections
+   ============================================================ */
+section {
+  margin-bottom: var(--gap-xxl);
+  scroll-margin-top: 24px;
+}
+.section-eyebrow {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.section-num {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--jy-action);
+  letter-spacing: 2px;
+}
+.section-en {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: var(--text-mute);
+  text-transform: uppercase;
+}
+h2.section-title {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+  color: var(--jy-navy);
+}
+.section-lead {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 40px;
+  max-width: 820px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--jy-navy);
+  margin: 40px 0 16px 0;
+  letter-spacing: -0.3px;
+}
+h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--jy-navy);
+  margin: 24px 0 8px 0;
+}
+p { margin-bottom: 12px; }
+p:last-child { margin-bottom: 0; }
+
+/* ============================================================
+   Tables — uniform style across all sections
+   ============================================================ */
+.t-wrap {
+  margin: 16px 0 24px 0;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+table.t {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+table.t th, table.t td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.6;
+}
+table.t th {
+  background: var(--jy-navy);
+  color: var(--jy-white);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+table.t tr:nth-child(even) td { background: var(--bg-subtle); }
+table.t tr:last-child td { border-bottom: none; }
+table.t td strong { color: var(--jy-navy); }
+
+/* ============================================================
+   Lists
+   ============================================================ */
+ul.checklist {
+  list-style: none;
+  margin: 12px 0 24px 0;
+}
+ul.checklist li {
+  position: relative;
+  padding: 6px 0 6px 24px;
+  line-height: 1.7;
+}
+ul.checklist li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--jy-steel);
+  font-weight: 700;
+}
+ul.warn li::before { content: "✕"; color: var(--jy-alert); }
+ul.ok li::before { content: "✓"; color: var(--jy-trust); }
+
+/* ============================================================
+   Cards
+   ============================================================ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 16px 0 24px 0;
+}
+.card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 20px;
+  transition: all .15s ease;
+}
+.card:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
+}
+.card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--jy-navy);
+  margin-bottom: 8px;
+}
+.card-body {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+/* ============================================================
+   Logo System Interactive (Section 03)
+   ============================================================ */
+.logo-system {
+  background: var(--bg-subtle);
+  border-radius: 8px;
+  padding: 32px;
+  margin: 16px 0 24px 0;
+}
+.logo-controls {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.logo-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.logo-control-label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--text-mute);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.logo-btns {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.logo-btn {
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--text);
+  cursor: pointer;
+  transition: all .12s ease;
+}
+.logo-btn:hover { border-color: var(--jy-navy); }
+.logo-btn.active {
+  background: var(--jy-navy);
+  color: var(--jy-mist);
+  border-color: var(--jy-navy);
+}
+.logo-stage {
+  background: var(--jy-white);
+  border-radius: 6px;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  transition: background .2s ease;
+  border: 1px solid var(--line);
+  position: relative;
+}
+.logo-stage[data-bg="navy"] { background: var(--jy-navy); border-color: var(--jy-navy); }
+.logo-stage[data-bg="mist"] { background: var(--jy-mist); }
+.logo-stage[data-bg="white"] { background: var(--jy-white); }
+.logo-stage svg {
+  max-width: 100%;
+  max-height: 240px;
+  width: auto;
+  height: auto;
+}
+.logo-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.logo-info-block .k {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--text-mute);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.logo-info-block .v {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text);
+}
+.logo-filename {
+  font-family: 'SF Mono', Monaco, Menlo, Consolas, monospace;
+  font-size: 12px;
+  background: var(--bg);
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  display: inline-block;
+}
+
+/* ============================================================
+   Color System Interactive (Section 04)
+   ============================================================ */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin: 16px 0 32px 0;
+}
+.swatch {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all .15s ease;
+  background: var(--bg);
+}
+.swatch:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16,48,87,0.08);
+}
+.swatch-chip {
+  height: 100px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 12px;
+}
+.swatch-chip .copy-hint {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+.swatch:hover .copy-hint { opacity: 0.7; }
+.swatch.copied .copy-hint { opacity: 1; }
+.swatch-meta {
+  padding: 14px 16px;
+}
+.swatch-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--jy-navy);
+  margin-bottom: 2px;
+}
+.swatch-name-en {
+  font-size: 11px;
+  color: var(--text-mute);
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+.swatch-hex {
+  font-family: 'SF Mono', Monaco, Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.swatch-tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.swatch-tag {
+  font-size: 10px;
+  padding: 2px 6px;
+  background: var(--bg-subtle);
+  color: var(--text-mute);
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+}
+.swatch-tag.ok { background: rgba(69,125,89,0.12); color: var(--jy-trust); }
+.swatch-tag.no { background: rgba(224,16,60,0.10); color: var(--jy-alert); }
+
+/* ============================================================
+   Typography Interactive (Section 05)
+   ============================================================ */
+.type-demo {
+  background: var(--bg-subtle);
+  border-radius: 8px;
+  padding: 32px;
+  margin: 16px 0 24px 0;
+}
+.type-controls {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.type-control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.type-control-label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--text-mute);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.type-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--text);
+}
+.type-input:focus {
+  outline: none;
+  border-color: var(--jy-navy);
+}
+.type-samples {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.type-sample {
+  padding: 16px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.type-sample:last-child { border-bottom: none; }
+.type-sample-meta {
+  font-size: 11px;
+  color: var(--text-mute);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.type-sample-text { color: var(--jy-navy); line-height: 1.3; }
+
+/* ============================================================
+   Voice Comparison (Section 06)
+   ============================================================ */
+.voice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0 24px 0;
+}
+.voice-card {
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+}
+.voice-card.ok { border-left: 4px solid var(--jy-trust); }
+.voice-card.no { border-left: 4px solid var(--jy-alert); }
+.voice-card-label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.voice-card.ok .voice-card-label { color: var(--jy-trust); }
+.voice-card.no .voice-card-label { color: var(--jy-alert); }
+.voice-card-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.copy-flip {
+  background: var(--bg-subtle);
+  border-radius: 8px;
+  padding: 24px;
+  margin: 24px 0;
+}
+.copy-flip-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.copy-flip-btn {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 500;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text);
+}
+.copy-flip-btn.active { background: var(--jy-navy); color: var(--jy-mist); border-color: var(--jy-navy); }
+.copy-flip-content { min-height: 80px; }
+.copy-flip-card {
+  display: none;
+  padding: 20px;
+  border-radius: 6px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+.copy-flip-card.active { display: block; }
+.copy-flip-card.bad { border-left: 4px solid var(--jy-alert); }
+.copy-flip-card.good { border-left: 4px solid var(--jy-trust); }
+.copy-flip-headline {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--jy-navy);
+  margin-bottom: 8px;
+}
+.copy-flip-note { font-size: 13px; color: var(--text-mute); }
+
+/* ============================================================
+   Category Color Demo (Section 04.1)
+   ============================================================ */
+.cat-demo {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 16px 0 24px 0;
+}
+.cat-tabs {
+  display: flex;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--line);
+}
+.cat-tab {
+  flex: 1;
+  padding: 14px 12px;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  border-bottom: 3px solid transparent;
+  transition: all .15s ease;
+}
+.cat-tab:hover { background: var(--bg); }
+.cat-tab.active { background: var(--bg); font-weight: 700; }
+.cat-preview {
+  background: var(--bg);
+  padding: 0;
+}
+.cat-bar {
+  height: 64px;
+  transition: background .2s ease;
+}
+.cat-card {
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.cat-card-info h4 {
+  margin-top: 0;
+  font-size: 22px;
+}
+.cat-card-meta {
+  font-family: 'SF Mono', Monaco, Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--text-mute);
+  margin-bottom: 12px;
+}
+.cat-card-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+}
+.cat-card-example {
+  background: var(--bg-subtle);
+  padding: 16px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+}
+.cat-example-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   Risk Word Lookup (Section 11)
+   ============================================================ */
+.risk-tool {
+  background: var(--bg-subtle);
+  border-radius: 8px;
+  padding: 24px;
+  margin: 16px 0 24px 0;
+}
+.risk-search {
+  width: 100%;
+  padding: 14px 18px;
+  font-family: inherit;
+  font-size: 15px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.risk-search:focus { outline: none; border-color: var(--jy-navy); }
+.risk-results {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 480px;
+  overflow-y: auto;
+}
+.risk-item {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: center;
+}
+.risk-bad {
+  color: var(--jy-alert);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: line-through;
+  text-decoration-color: var(--jy-alert);
+}
+.risk-arrow { color: var(--text-mute); font-size: 16px; }
+.risk-good { color: var(--jy-trust); font-weight: 500; font-size: 14px; }
+.risk-empty {
+  padding: 32px;
+  text-align: center;
+  color: var(--text-mute);
+  font-size: 14px;
+}
+
+/* ============================================================
+   Icon Showcase (Section 08)
+   ============================================================ */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 16px 0 24px 0;
+}
+.icon-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 12px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  text-align: center;
+  gap: 8px;
+}
+.icon-tile i, .icon-tile svg {
+  width: 32px;
+  height: 32px;
+  stroke: var(--jy-navy);
+  stroke-width: 2;
+  fill: none;
+}
+.icon-label {
+  font-size: 12px;
+  color: var(--text);
+  font-weight: 500;
+}
+.icon-name {
+  font-family: 'SF Mono', Monaco, Menlo, Consolas, monospace;
+  font-size: 10px;
+  color: var(--text-mute);
+}
+
+/* ============================================================
+   Spec Tag Display
+   ============================================================ */
+.spec-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 12px 0 16px 0;
+}
+.spec-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.spec-tag.action { background: var(--jy-action); color: var(--jy-white); }
+.spec-tag.trust { background: var(--jy-trust); color: var(--jy-white); }
+.spec-tag.promo { background: var(--jy-promo); color: var(--jy-navy); }
+.spec-tag.navy { background: var(--jy-navy); color: var(--jy-white); }
+
+/* ============================================================
+   Callout / Notice
+   ============================================================ */
+.callout {
+  background: var(--bg-subtle);
+  border-left: 4px solid var(--jy-navy);
+  padding: 20px 24px;
+  margin: 24px 0;
+  border-radius: 4px;
+}
+.callout.warn { border-left-color: var(--jy-alert); background: rgba(224,16,60,0.04); }
+.callout.tip { border-left-color: var(--jy-trust); background: rgba(69,125,89,0.04); }
+.callout.action { border-left-color: var(--jy-action); background: rgba(255,101,63,0.04); }
+.callout-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--jy-navy);
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+.callout-body { font-size: 14px; line-height: 1.7; color: var(--text); }
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+  margin-top: var(--gap-xxl);
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--text-mute);
+  line-height: 1.7;
+}
+.footer .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 960px) {
+  .app { grid-template-columns: 1fr; }
+  .nav {
+    position: relative;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--jy-navy);
+  }
+  .main { padding: 32px 24px 64px 24px; }
+  .hero {
+    padding: 56px 24px;
+    margin: -32px -24px 48px -24px;
+  }
+  .hero h1 { font-size: 36px; }
+  .hero-meta { grid-template-columns: repeat(2, 1fr); }
+  h2.section-title { font-size: 28px; }
+  .voice-grid { grid-template-columns: 1fr; }
+  .logo-info { grid-template-columns: 1fr; }
+  .cat-card { grid-template-columns: 1fr; }
+  .risk-item { grid-template-columns: 1fr; gap: 4px; }
+  .risk-arrow { display: none; }
+  .nav-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+  }
+}
+
+/* Print-friendly */
+@media print {
+  .nav { display: none; }
+  .app { grid-template-columns: 1fr; }
+  .main { padding: 24px; }
+  .hero { background: white; color: black; }
+  .hero h1 { color: black; }
+  section { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+<!-- ============================================================
+     SIDEBAR NAV
+     ============================================================ -->
+<aside class="nav">
+  <div class="nav-brand">
+    <div class="nav-brand-mark">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.323 1417.323">
+        <path d="M484.471,355.282c.016-.055.029-.111.043-.167,10.768,23.091,34.174,39.101,61.332,39.101h238.698l-4.895,7.672-.453-.241-24.588,39.488-32.224,50.5c13.422,11.271,25.273,24.652,35.008,39.937l65.871,103.423,31.019-49.818,160.313-251.541c11.748-16.74,27.892-35.947,49.707-54.302,40.504-34.081,81.505-49.211,105.945-56.162H315.023c24.439,6.951,65.441,22.081,105.945,56.162,32.076,26.99,51.922,55.839,63.504,75.949Z"/>
+        <path d="M536.248,962.057v-.002h9.988c-.008-.032-.016-.064-.025-.098,38.816-1.014,75.199-17.853,100.976-46.109l.326-.566.918.488,42.668-68.522-95.751-150.346-14.307,22.976-.189-.306-31.906,51.852-42.769,68.685.217.115-4.461,7.006c-5.809,8.607-12.81,17.982-21.207,27.644l-34.404-54.019c-25.349-39.807-68.802-64.301-115.82-65.53.004-.021.01-.04.014-.06H127.559c24.441,6.951,65.441,22.082,105.945,56.163,23.736,19.972,40.761,40.952,52.709,58.666l8.187,12.855c.908,1.515,1.785,2.999,2.607,4.428.021-.079.041-.158.062-.237l47.472,74.543c-.412.12-.859.257-1.262.371h1.5v.002h191.468Z"/>
+        <path d="M1086.807,494.652c.005.021.01.042.016.063-46.933,1.3-90.288,25.782-115.6,65.526l-116.753,183.323-124.068-194.807c-26.018-40.853-71.098-65.589-119.533-65.589h-113.706l261.573,410.716-107.246,168.394c-.02-.079-.04-.159-.06-.238-.824,1.431-1.703,2.918-2.612,4.434l-8.181,12.845c-11.949,17.714-28.973,38.696-52.71,58.669-40.503,34.081-81.506,49.212-105.946,56.162h202.957c-.005-.02-.01-.04-.015-.059,47.017-1.229,90.47-25.723,115.822-65.53l333.369-523.447c11.749-16.74,27.894-35.947,49.706-54.3,40.503-34.081,81.505-49.212,105.946-56.162h-202.957Z"/>
+      </svg>
+    </div>
+    <div class="nav-brand-text">
+      眾悅車用精品 JY
+      <span class="sub">Brand Guidelines v1.4</span>
+    </div>
+  </div>
+
+  <ul class="nav-list">
+    <li><a href="#s01"><span class="num">01</span>品牌核心</a></li>
+    <li><a href="#s02"><span class="num">02</span>受眾與商品</a></li>
+    <li><a href="#s03"><span class="num">03</span>Logo 標誌系統</a></li>
+    <li><a href="#s04"><span class="num">04</span>Color 色彩系統</a></li>
+    <li><a href="#s05"><span class="num">05</span>Typography 字體</a></li>
+    <li><a href="#s06"><span class="num">06</span>Brand Voice 語氣</a></li>
+    <li><a href="#s07"><span class="num">07</span>Photography 攝影</a></li>
+    <li><a href="#s08"><span class="num">08</span>Graphics / Icons</a></li>
+    <li><a href="#s09"><span class="num">09</span>Charts 圖表</a></li>
+    <li><a href="#s10"><span class="num">10</span>Brand Applications</a></li>
+    <li><a href="#s11"><span class="num">11</span>商標版權與風險</a></li>
+    <li><a href="#sA"><span class="num">附</span>待補資料</a></li>
+  </ul>
+
+  <div class="nav-meta">
+    悅聯集團 · 品牌策略部 B02<br>
+    v1.4 · 2026/05/22<br>
+    內部使用文件
+  </div>
+</aside>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main class="main">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-mark">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.323 1417.323">
+        <path d="M484.471,355.282c.016-.055.029-.111.043-.167,10.768,23.091,34.174,39.101,61.332,39.101h238.698l-4.895,7.672-.453-.241-24.588,39.488-32.224,50.5c13.422,11.271,25.273,24.652,35.008,39.937l65.871,103.423,31.019-49.818,160.313-251.541c11.748-16.74,27.892-35.947,49.707-54.302,40.504-34.081,81.505-49.211,105.945-56.162H315.023c24.439,6.951,65.441,22.081,105.945,56.162,32.076,26.99,51.922,55.839,63.504,75.949Z"/>
+        <path d="M536.248,962.057v-.002h9.988c-.008-.032-.016-.064-.025-.098,38.816-1.014,75.199-17.853,100.976-46.109l.326-.566.918.488,42.668-68.522-95.751-150.346-14.307,22.976-.189-.306-31.906,51.852-42.769,68.685.217.115-4.461,7.006c-5.809,8.607-12.81,17.982-21.207,27.644l-34.404-54.019c-25.349-39.807-68.802-64.301-115.82-65.53.004-.021.01-.04.014-.06H127.559c24.441,6.951,65.441,22.082,105.945,56.163,23.736,19.972,40.761,40.952,52.709,58.666l8.187,12.855c.908,1.515,1.785,2.999,2.607,4.428.021-.079.041-.158.062-.237l47.472,74.543c-.412.12-.859.257-1.262.371h1.5v.002h191.468Z"/>
+        <path d="M1086.807,494.652c.005.021.01.042.016.063-46.933,1.3-90.288,25.782-115.6,65.526l-116.753,183.323-124.068-194.807c-26.018-40.853-71.098-65.589-119.533-65.589h-113.706l261.573,410.716-107.246,168.394c-.02-.079-.04-.159-.06-.238-.824,1.431-1.703,2.918-2.612,4.434l-8.181,12.845c-11.949,17.714-28.973,38.696-52.71,58.669-40.503,34.081-81.506,49.212-105.946,56.162h202.957c-.005-.02-.01-.04-.015-.059,47.017-1.229,90.47-25.723,115.822-65.53l333.369-523.447c11.749-16.74,27.894-35.947,49.706-54.3,40.503-34.081,81.505-49.212,105.946-56.162h-202.957Z"/>
+      </svg>
+    </div>
+    <div class="hero-eyebrow">Brand Guidelines · Version 1.4</div>
+    <h1>眾悅車用精品 <span class="em">JY</span></h1>
+    <div class="hero-sub">
+      車主與職人的後援補給站。專業品牌指南執行版,統一品牌識別、色彩字體、圖形圖示、影像語氣與主要應用場景,讓品牌、設計、營運與外部協力在同一套標準下輸出一致內容。
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="k">Version</div>
+        <div class="v">v1.4</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="k">Updated</div>
+        <div class="v">2026 / 05 / 22</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="k">Issued by</div>
+        <div class="v">悅聯集團 B02</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="k">Scope</div>
+        <div class="v">蝦皮 / 社群 / 簡報 / 包裝</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-inner">
+
+<div class="callout">
+  <div class="callout-title">本版定位</div>
+  <div class="callout-body">
+    不推翻 v1.2,而是將既有品牌骨架升級成可治理、可複用、可交付、可在 Canva 與電商素材流程落地的執行版。判斷原則:凡是不能幫買家更快看懂規格、相容性、用途、現貨與風險的設計或文字,都應刪除或降級。眾悅的品牌價值來自「降低買錯與溝通成本」,不是增加裝飾。
+  </div>
+</div>
+
+<!-- ============================================================
+     SECTION 01 — BRAND CORE
+     ============================================================ -->
+<section id="s01">
+  <div class="section-eyebrow">
+    <span class="section-num">01</span>
+    <span class="section-en">Brand Core</span>
+  </div>
+  <h2 class="section-title">品牌核心</h2>
+  <div class="section-lead">
+    眾悅的核心定位保留 v1.2 的正確基礎,並補上使命、願景與品牌承諾,使品牌不只適用於商品圖,也能延伸到官網、簡報、社群、門市與團隊內部溝通。
+  </div>
+
+  <h3>1.1 正式定義</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:25%">項目</th><th>正式定義</th></tr></thead>
+      <tbody>
+        <tr><td><strong>一句話定位</strong></td><td>眾悅是車主與職人的後援補給站。</td></tr>
+        <tr><td><strong>正式定位</strong></td><td>服務車主與職人的機能型選品與決策補給品牌。</td></tr>
+        <tr><td><strong>品牌使命</strong></td><td>讓每一次升級與維護,都能更快找到對的配件、資訊與支援。</td></tr>
+        <tr><td><strong>品牌願景</strong></td><td>成為台灣最值得信賴的車用機能選品與決策補給品牌。</td></tr>
+        <tr><td><strong>品牌承諾</strong></td><td>規格講清楚,選擇更省力,到手更安心。</td></tr>
+        <tr><td><strong>品牌角色</strong></td><td>專業、可靠、有經驗的車界老師傅;能服務職業包膜貼膜師傅、車美容工作室,也能讓 DIY 玩家與一般車主買得懂、用得上。</td></tr>
+        <tr><td><strong>品牌個性</strong></td><td>專業、直白、條列、老師傅感;不網紅、不可愛、不浮誇、不打雞血。</td></tr>
+        <tr><td><strong>英文識別</strong></td><td>Crafting Brilliance</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>1.2 核心價值四支柱</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:12%">支柱</th><th style="width:28%">代表意義</th><th>落地做法</th></tr></thead>
+      <tbody>
+        <tr><td><strong>齊</strong></td><td>品項與解決方案完整</td><td>可比較、可搭配、可一次補齊;商品圖需提供內容物、尺寸、搭配建議。</td></tr>
+        <tr><td><strong>快</strong></td><td>理解快、下單快、出貨資訊清楚</td><td>現貨、24H 出貨、隔日到貨等訊號以具體條件呈現,不用神速、最快。</td></tr>
+        <tr><td><strong>準</strong></td><td>規格與相容性準確</td><td>材質、尺寸、容量、年份、安裝位置、非原廠說明清楚,避免買錯。</td></tr>
+        <tr><td><strong>安心</strong></td><td>售後、保固、客服與信任訊號</td><td>可標示實體公司、客服可問、雲端發票、平台評價,但須是真實可證明資訊。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>1.3 品牌不是什麼</h3>
+  <ul class="checklist warn">
+    <li>不是車廠原廠、官方授權或聯名品牌;車廠名稱只能作適用性說明。</li>
+    <li>不是直播叫賣或網紅式改裝潮牌;不使用過度浮誇語言與高飽和視覺。</li>
+    <li>不是只賣低價的賣場;價格可清楚,但主訊息應以規格、現貨、用途與風險降低為優先。</li>
+    <li>不是純展示精品;商品圖要讓使用者可以判斷、確認、比較與下單。</li>
+  </ul>
+</section>
+
+<!-- ============================================================
+     SECTION 02 — AUDIENCE & CATEGORY
+     ============================================================ -->
+<section id="s02">
+  <div class="section-eyebrow">
+    <span class="section-num">02</span>
+    <span class="section-en">Audience, Category System and Communication Priorities</span>
+  </div>
+  <h2 class="section-title">受眾、商品分類與策略</h2>
+  <div class="section-lead">
+    BMW / BENZ / TESLA 等名稱只能作相容性資訊,不作視覺主分類、品牌背書或聯名暗示。所有模板先以商品功能與採購情境分區。
+  </div>
+
+  <h3>2.1 目標買家與製作重點</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:22%">TA 類型</th><th style="width:32%">需求重點</th><th>視覺與文案優先項</th></tr></thead>
+      <tbody>
+        <tr><td><strong>職業包膜 / 貼膜師傅</strong></td><td>穩定供貨、規格清楚、工具好補</td><td>規格大字、現貨標籤、24H、批量採購、搭配工具。</td></tr>
+        <tr><td><strong>車美容 / 洗車工作室</strong></td><td>耗材常備、施工效率、效果可預期</td><td>用途部位、容量、施工情境、補貨理由、注意事項。</td></tr>
+        <tr><td><strong>DIY 改裝 / 包膜玩家</strong></td><td>看得懂用途、步驟與注意事項</td><td>操作步驟、施工前後對照、購買前確認、錯誤示範。</td></tr>
+        <tr><td><strong>Tesla / BMW / Benz 車主</strong></td><td>相容性、年份、安裝位置、非原廠風險</td><td>車型標籤、適用範圍、年份提醒、非原廠註記。</td></tr>
+        <tr><td><strong>一般車主</strong></td><td>現貨、價格透明、快速到貨、客服可問</td><td>現貨徽章、出貨速度、客服入口、簡明規格。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2.2 商品分類:以品類,不以車系做視覺主分類</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:18%">主分類</th><th style="width:42%">商品例子</th><th>製圖重點</th></tr></thead>
+      <tbody>
+        <tr><td><strong>工具耗材</strong></td><td>刮板、麂皮貼、海綿、噴瓶、手套、小五金、通用耗材</td><td>尺寸、數量、材質、用途、常備耗材感、現貨快出。</td></tr>
+        <tr><td><strong>鍍膜清潔</strong></td><td>洗車精、鍍膜液、輪胎油、清潔劑、除膠劑、保養液、噴劑</td><td>用途、容量、適用部位、使用方式、注意事項;避免誇大效能。</td></tr>
+        <tr><td><strong>膜料 / 貼膜</strong></td><td>TPU 犀牛皮、改色膜、燈膜、貼膜前導劑、包膜材料</td><td>尺寸、顏色、材質、施工情境、適用位置、購買前確認。</td></tr>
+        <tr><td><strong>車用精品 / 配件</strong></td><td>收納盒、杯架、掛勾、車用小物</td><td>適用車型、年份、安裝位置、尺寸,避免買錯;不可誤稱原廠。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2.3 資訊優先級</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:12%">層級</th><th style="width:22%">回答問題</th><th style="width:33%">常見資訊</th><th>應用位置</th></tr></thead>
+      <tbody>
+        <tr><td><strong>第一層</strong></td><td>商品是什麼</td><td>品類、商品名、主規格</td><td>主圖大標、商品命名、首屏。</td></tr>
+        <tr><td><strong>第二層</strong></td><td>買前怎麼判斷</td><td>尺寸、容量、材質、適用位置、年份、相容性</td><td>規格圖、尺寸圖、比較表。</td></tr>
+        <tr><td><strong>第三層</strong></td><td>怎麼用才對</td><td>步驟、注意事項、錯誤用法、搭配工具</td><td>情境圖、分鏡圖、FAQ。</td></tr>
+        <tr><td><strong>第四層</strong></td><td>為什麼放心買</td><td>現貨、客服、實體公司、評價、雲端發票</td><td>信任圖、出貨與售後圖。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 03 — LOGO SYSTEM (INTERACTIVE)
+     ============================================================ -->
+<section id="s03">
+  <div class="section-eyebrow">
+    <span class="section-num">03</span>
+    <span class="section-en">Logo Versions, Color Variants and Usage Rules</span>
+  </div>
+  <h2 class="section-title">Logo 標誌系統</h2>
+  <div class="section-lead">
+    眾悅 Logo 目前以 v1.2 SVG 圖組作為第一階段正式執行依據。圖組共分 6 種版型,每種版型提供標準深海藍版、深底反白版與淺色反白版;日常設計應優先使用 SVG,PNG 僅作快速貼用或平台上傳備用。
+  </div>
+
+  <h3>3.1 即時預覽器</h3>
+  <p style="color: var(--text-mute); font-size: 14px; margin-bottom: 8px;">點選版型與背景,確認 Logo 在實際情境的顯示效果。</p>
+
+  <div class="logo-system">
+    <div class="logo-controls">
+      <div class="logo-control-group">
+        <span class="logo-control-label">版型</span>
+        <div class="logo-btns" id="logoTypeBtns">
+          <button class="logo-btn active" data-type="01">A 主標準</button>
+          <button class="logo-btn" data-type="02">B 橫式標語</button>
+          <button class="logo-btn" data-type="03">C 純圖標</button>
+          <button class="logo-btn" data-type="04">D 上下完整</button>
+          <button class="logo-btn" data-type="05">E 理念完整</button>
+          <button class="logo-btn" data-type="06">F 理念簡化</button>
+        </div>
+      </div>
+      <div class="logo-control-group">
+        <span class="logo-control-label">背景</span>
+        <div class="logo-btns" id="logoBgBtns">
+          <button class="logo-btn active" data-bg="white">白底</button>
+          <button class="logo-btn" data-bg="mist">霧藍底</button>
+          <button class="logo-btn" data-bg="navy">深海藍</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="logo-stage" id="logoStage" data-bg="white">
+      <div id="logoMount"></div>
+    </div>
+
+    <div class="logo-info">
+      <div class="logo-info-block">
+        <div class="k">用途</div>
+        <div class="v" id="logoUsage">內容:JY 圖標 + Crafting Brilliance + 眾悅車用精品。用途:官方封面、賣場 Banner、品牌文件、門市與正式對外露出。</div>
+      </div>
+      <div class="logo-info-block">
+        <div class="k">最小尺寸</div>
+        <div class="v" id="logoMinSize">螢幕 ≥ 200px / 印刷 ≥ 40mm</div>
+        <div class="k" style="margin-top:14px;">檔案</div>
+        <div class="v"><span class="logo-filename" id="logoFilename">JY_logo_01.svg</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3>3.2 色彩版本使用規則</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:15%">版本後綴</th><th style="width:25%">色彩 / 背景</th><th>適用情境</th><th style="width:25%">限制</th></tr></thead>
+      <tbody>
+        <tr><td><strong>無後綴</strong></td><td>JY Deep Navy #103057,透明底</td><td>白底、淺灰底、JY Mist Blue White 底、文件內頁與一般商品圖。</td><td>預設優先使用;背景不可低於基本對比。</td></tr>
+        <tr><td><strong>b</strong></td><td>白色標誌 + JY Deep Navy 深底</td><td>深色封面、Banner、簡報首頁、需要完整色塊支撐的情境。</td><td>不可再加外框、陰影或重複底框。</td></tr>
+        <tr><td><strong>w</strong></td><td>JY Mist Blue White #F3F7FA,透明底</td><td>深海藍、黑灰、深色照片或深底視覺中的低亮反白。</td><td>不可放在白底或淺灰底;小尺寸辨識不足時改用 b 版。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>3.3 使用規範</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:18%">項目</th><th>規範</th></tr></thead>
+      <tbody>
+        <tr><td><strong>安全空間</strong></td><td>以 JY 圖標中「J」高度為 1X,四周至少保留 1X 淨空;小尺寸或章牌應至少保留 Symbol 高度 1/4。</td></tr>
+        <tr><td><strong>背景</strong></td><td>白底、淺灰底優先用無後綴深海藍版;深色底用 b 版或 w 版。照片背景需加 60-75% 深色遮罩、白底框或獨立色塊。</td></tr>
+        <tr><td><strong>商品圖</strong></td><td>主圖右上角優先用 B 橫式標語版;空間不足或作淡化浮水印時使用 C 純圖標版。Logo 不得遮住商品關鍵細節、規格、尺寸或相容性資訊。</td></tr>
+        <tr><td><strong>品牌形象</strong></td><td>正式封面、賣場首頁、對外簡報優先用 A 主標準版;需要方形置中時改用 D;需要品牌理念語境時才使用 E / F。</td></tr>
+        <tr><td><strong>母品牌並列</strong></td><td>若與悅聯 Logo 同時出現,悅聯在前,眾悅高度不超過悅聯 80%,中間以細線或 1X 留白分隔。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>3.4 禁止用法</h3>
+  <ul class="checklist warn">
+    <li>禁止變形、拉伸、傾斜、旋轉、裁切 Logo。</li>
+    <li>禁止任意改色、彩虹漸層、霓虹色、金屬光澤、陰影、外光暈、立體浮雕。</li>
+    <li>禁止把 01-06 任一版型拆件使用,例如單獨抽出 Crafting Brilliance、中文標準字或理念短句重排。</li>
+    <li>禁止將 w 版放在白底、淺灰底或低對比背景上;無法辨識時應改用 b 版或深海藍版。</li>
+    <li>禁止與 Tesla、BMW、Benz、3M 等他牌商標無分隔並列,避免造成授權或合作誤導。</li>
+    <li>禁止用 JPG 當作正式 master 檔;正式交付以 SVG 為主,印刷大量輸出前補 AI / PDF。</li>
+  </ul>
+
+  <h3>3.5 Logo 檔案命名建議</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:45%">建議檔名</th><th style="width:10%">格式</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td><code>JY_Logo_Primary_Navy_RGB_v1.2.svg</code></td><td>SVG</td><td>A 主標準版;正式主標、文件封面、品牌資產庫。</td></tr>
+        <tr><td><code>JY_Logo_Primary_Reverse_RGB_v1.2.svg</code></td><td>SVG</td><td>A 主標準反白深底版;深色封面與 Banner。</td></tr>
+        <tr><td><code>JY_Logo_Tagline_Navy_RGB_v1.2.svg</code></td><td>SVG</td><td>B 橫式標語版;商品圖、社群、浮水印。</td></tr>
+        <tr><td><code>JY_Logo_Mark_Navy_RGB_v1.2.svg</code></td><td>SVG</td><td>C 純圖標版;favicon、icon、封箱貼與小尺寸應用。</td></tr>
+        <tr><td><code>JY_Logo_Stacked_Navy_RGB_v1.2.svg</code></td><td>SVG</td><td>D 上下完整版;方形貼紙、章牌與置中版面。</td></tr>
+        <tr><td><code>JY_Logo_Purpose_Full_Navy_RGB_v1.2.svg</code></td><td>SVG</td><td>E 理念完整版;品牌形象與簡報封面,不用於小尺寸縮圖。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-title">3.6 待補資料</div>
+    <div class="callout-body">
+      AI / PDF 印刷主檔(大量印刷、招牌、燙印、雕刻與供應商製作前需補齊)、Logo 尺寸測試包(建議補 48px、96px、200px、1080px 四種 PNG 匯出版)、Canva Brand Kit 命名(Logo 上傳時需依 A-F 與 Navy / Reverse / Mist White 三種版本建立資料夾或標籤)。
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 04 — COLOR SYSTEM (INTERACTIVE)
+     ============================================================ -->
+<section id="s04">
+  <div class="section-eyebrow">
+    <span class="section-num">04</span>
+    <span class="section-en">Color Tokens, Accessibility and Usage Ratios</span>
+  </div>
+  <h2 class="section-title">Color 色彩系統</h2>
+  <div class="section-lead">
+    色彩策略以深海藍、鋼藍灰、霧藍白與白色建立車用精品的專業、可靠與清爽感;Action 橘紅作為唯一主要行動色;Promo 琥珀黃僅用於促銷檔期;Alert 警示紅僅用於警示;Trust 松綠僅用於信任訊號。
+  </div>
+
+  <h3>4.1 主色 / 狀態色(點擊複製 HEX)</h3>
+  <div class="color-grid" id="colorGridMain"></div>
+
+  <h3>4.2 品類分區色</h3>
+  <p style="color: var(--text-mute); font-size: 14px; margin-bottom: 8px;">品類分區色用於商品圖頂部色條與品類標籤,協助買家在縮圖時 1 秒內辨識品類。日常品牌主色仍以深海藍、鋼藍灰、霧藍白與白色為主,品類色為輔助識別。</p>
+  <div class="color-grid" id="colorGridCat"></div>
+
+  <h3>4.3 品類色條即時預覽</h3>
+  <div class="cat-demo">
+    <div class="cat-tabs" id="catTabs">
+      <button class="cat-tab active" data-cat="tool">工具耗材</button>
+      <button class="cat-tab" data-cat="detail">鍍膜清潔</button>
+      <button class="cat-tab" data-cat="film">膜料 / 貼膜</button>
+      <button class="cat-tab" data-cat="accessory">車用精品</button>
+      <button class="cat-tab" data-cat="other">其他</button>
+    </div>
+    <div class="cat-preview">
+      <div class="cat-bar" id="catBar" style="background: #383838;"></div>
+      <div class="cat-card">
+        <div class="cat-card-info">
+          <h4 id="catName">Tool Graphite 工具墨灰</h4>
+          <div class="cat-card-meta" id="catMeta">#383838 · RGB 56, 56, 56 · CMYK 0, 0, 0, 78</div>
+          <div class="cat-card-text" id="catText">刮板、海綿、噴瓶、手套、小五金、通用耗材;穩重、耐用、工具感。</div>
+        </div>
+        <div class="cat-card-example">
+          <div class="cat-example-label">商品圖頂部色條範例</div>
+          <div style="background: var(--bg); padding: 12px; border-radius: 4px;">
+            <div style="height: 16px; background: var(--cat-active, #383838); border-radius: 2px; margin-bottom: 12px;" id="catExampleBar"></div>
+            <div style="font-size: 12px; color: var(--text-mute); margin-bottom: 6px;">商品主圖 1080×1080</div>
+            <div style="font-size: 18px; font-weight: 900; color: var(--jy-navy);" id="catExampleTitle">【包膜刮板】軟硬雙邊</div>
+            <div class="spec-tags" style="margin-top: 8px;">
+              <span class="spec-tag action">現貨</span>
+              <span class="spec-tag trust">24H 出貨</span>
+              <span class="spec-tag navy" id="catExampleTag">工具耗材</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>4.4 配色比例與可近用檢核</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:20%">項目</th><th>規範</th></tr></thead>
+      <tbody>
+        <tr><td><strong>標準商品圖</strong></td><td>中性色與 Base 75-85%;商品本色 10-20%;Action 與品類色合計 10% 以內。</td></tr>
+        <tr><td><strong>促銷 / 活動圖</strong></td><td>Promo Amber Yellow(促銷黃)可用於限時、折扣、滿額、免運;Action 維持 CTA;Alert Red(警示紅)僅作警示,三者不可同時大面積出現。</td></tr>
+        <tr><td><strong>可讀性</strong></td><td>一般文字目標對比 ≥ 4.5:1;大字與粗標目標 ≥ 3:1;Promo Amber Yellow 建議搭配 #103057 或 #000000 深色字。</td></tr>
+        <tr><td><strong>縮圖測試</strong></td><td>縮成 320×320 後,主標、商品、品類色條與 CTA 仍須能辨識;縮成 200×200 後可 1 秒內辨識品類。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>4.5 常用對比組合</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th>色票</th><th style="text-align:center">配白字</th><th style="text-align:center">配黑字</th><th>白字判斷</th><th>黑字判斷</th></tr></thead>
+      <tbody>
+        <tr><td>JY Deep Navy 深海藍</td><td style="text-align:center"><strong>13.27:1</strong></td><td style="text-align:center">1.58:1</td><td>白字可用</td><td>黑字不建議</td></tr>
+        <tr><td>JY Steel Blue Grey 鋼藍灰</td><td style="text-align:center">4.27:1</td><td style="text-align:center">4.92:1</td><td>白字限大字 / 圖形</td><td>黑字可用</td></tr>
+        <tr><td>JY Mist Blue White 霧藍白</td><td style="text-align:center">1.08:1</td><td style="text-align:center"><strong>19.50:1</strong></td><td>白字不建議</td><td>黑字可用</td></tr>
+        <tr><td>Action Orange Red 行動橘</td><td style="text-align:center">2.92:1</td><td style="text-align:center"><strong>7.19:1</strong></td><td>白字不建議</td><td>黑字可用</td></tr>
+        <tr><td>Promo Amber Yellow 促銷黃</td><td style="text-align:center">1.58:1</td><td style="text-align:center"><strong>13.27:1</strong></td><td>白字不建議</td><td>黑字可用</td></tr>
+        <tr><td>Alert Red 警示紅</td><td style="text-align:center"><strong>4.87:1</strong></td><td style="text-align:center">4.31:1</td><td>白字可用</td><td>黑字限大字 / 圖形</td></tr>
+        <tr><td>Trust Pine Green 信任綠</td><td style="text-align:center"><strong>4.85:1</strong></td><td style="text-align:center">4.33:1</td><td>白字可用</td><td>黑字限大字 / 圖形</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 05 — TYPOGRAPHY (INTERACTIVE)
+     ============================================================ -->
+<section id="s05">
+  <div class="section-eyebrow">
+    <span class="section-num">05</span>
+    <span class="section-en">Fonts, Hierarchy and Fallbacks</span>
+  </div>
+  <h2 class="section-title">Typography 字體系統</h2>
+  <div class="section-lead">
+    字體系統以可讀性、規格辨識與大量製作穩定性為優先。中文、英文、數字與規格資訊皆統一使用 Noto Sans TC,避免跨字體造成版面層級不一致。
+  </div>
+
+  <h3>5.1 字體層級即時預覽</h3>
+  <p style="color: var(--text-mute); font-size: 14px; margin-bottom: 8px;">輸入文字即時預覽各層級在商品圖上的實際呈現。</p>
+  <div class="type-demo">
+    <div class="type-controls">
+      <div class="type-control" style="flex:1; min-width: 240px;">
+        <span class="type-control-label">預覽文字</span>
+        <input type="text" class="type-input" id="typeInput" value="眾悅車用精品 JY · Crafting Brilliance">
+      </div>
+    </div>
+    <div class="type-samples">
+      <div class="type-sample">
+        <div class="type-sample-meta">H1 商品大標 · Noto Sans TC Black · 72-96px</div>
+        <div class="type-sample-text" id="t-h1" style="font-size: 56px; font-weight: 900;">眾悅車用精品 JY · Crafting Brilliance</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-sample-meta">H2 規格副標 · Noto Sans TC Bold / Medium · 40-48px</div>
+        <div class="type-sample-text" id="t-h2" style="font-size: 36px; font-weight: 700;">眾悅車用精品 JY · Crafting Brilliance</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-sample-meta">賣點註解 · Noto Sans TC Medium · 30-32px</div>
+        <div class="type-sample-text" id="t-tag" style="font-size: 24px; font-weight: 500;">眾悅車用精品 JY · Crafting Brilliance</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-sample-meta">Tag 標籤 · Noto Sans TC Bold · 24-32px</div>
+        <div class="type-sample-text" id="t-label" style="font-size: 18px; font-weight: 700;">眾悅車用精品 JY · Crafting Brilliance</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-sample-meta">注意事項 · Noto Sans TC Regular · 22-26px</div>
+        <div class="type-sample-text" id="t-body" style="font-size: 14px; font-weight: 400;">眾悅車用精品 JY · Crafting Brilliance</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>5.2 商品圖字級規範</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:22%">層級</th><th style="width:32%">字體建議</th><th style="width:18%">商品圖字級</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td><strong>H1 商品大標</strong></td><td>Noto Sans TC Black</td><td>72-96 px</td><td>品類關鍵字、核心商品名、英文大標。</td></tr>
+        <tr><td><strong>H2 規格副標</strong></td><td>Noto Sans TC Bold / Medium</td><td>40-48 px</td><td>尺寸、容量、材質、車型。</td></tr>
+        <tr><td><strong>賣點註解</strong></td><td>Noto Sans TC Medium</td><td>30-32 px</td><td>1 行短句賣點、使用提示。</td></tr>
+        <tr><td><strong>Tag 標籤</strong></td><td>Noto Sans TC Bold</td><td>24-32 px</td><td>現貨、24H、適用位置、規格。</td></tr>
+        <tr><td><strong>注意事項</strong></td><td>Noto Sans TC Regular</td><td>22-26 px</td><td>購買前確認、非原廠提醒、相容性聲明。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>5.3 跨媒體字級與排版參數</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:22%">項目</th><th style="width:42%">規範</th><th>備註</th></tr></thead>
+      <tbody>
+        <tr><td><strong>數位正文</strong></td><td>16-18 px;行高 145-165%。</td><td>商品頁、官網、EDM。</td></tr>
+        <tr><td><strong>印刷正文</strong></td><td>9-11 pt;行高 130-150%。</td><td>簡報講義、型錄、文件。</td></tr>
+        <tr><td><strong>標題行距</strong></td><td>120-135%。</td><td>避免中文大字過擠。</td></tr>
+        <tr><td><strong>中文字距</strong></td><td>標題 -1% 到 0%;內文 0 到 +1%。</td><td>Canva 無法精準設定時,以預設字距為主。</td></tr>
+        <tr><td><strong>英數字距</strong></td><td>0% 到 +2%。</td><td>英數與規格仍使用 Noto Sans TC;若需加強科技感,以字重與間距處理,不另換 display 字體。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>5.4 Fallback 與授權治理</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:18%">場景</th><th style="width:42%">建議設定</th><th>用途 / 注意</th></tr></thead>
+      <tbody>
+        <tr><td><strong>中文 Web</strong></td><td><code>Noto Sans TC, Microsoft JhengHei, PingFang TC, sans-serif</code></td><td>官網、Landing Page。</td></tr>
+        <tr><td><strong>英數 Web</strong></td><td><code>Noto Sans TC, Arial, Helvetica, sans-serif</code></td><td>規格、表格、英文 UI;與中文同字體優先。</td></tr>
+        <tr><td><strong>標題 Heading</strong></td><td>Noto Sans TC Bold</td><td>主標、活動標、社群圖。</td></tr>
+        <tr><td><strong>副標 Subheading</strong></td><td>Noto Sans TC Medium</td><td>副標、規格列。</td></tr>
+        <tr><td><strong>正文 Body</strong></td><td>Noto Sans TC Regular</td><td>長文、詳情頁、FAQ。</td></tr>
+        <tr><td><strong>字體授權</strong></td><td>上傳前需確認 Noto Sans TC 具備團隊使用、嵌入與再散布條件。</td><td>待補 FONT_LICENSE_DOC。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>5.5 禁用字體</h3>
+  <ul class="checklist warn">
+    <li>手寫體、書法體、卡通圓體、霓虹立體字、Comic Sans 類字型。</li>
+    <li>中文長文不可使用 Oswald、英文 display 字體、裝飾字體或非正式系統字。</li>
+    <li>規格表不可混用兩套以上字體,避免數字寬度與欄位對齊不一。</li>
+  </ul>
+</section>
+
+<!-- ============================================================
+     SECTION 06 — BRAND VOICE (INTERACTIVE)
+     ============================================================ -->
+<section id="s06">
+  <div class="section-eyebrow">
+    <span class="section-num">06</span>
+    <span class="section-en">Writing System, Naming and Risk Control</span>
+  </div>
+  <h2 class="section-title">Brand Voice 品牌語氣</h2>
+  <div class="section-lead">
+    眾悅的語氣像「懂車的師傅學長」:直接、專業、不囉嗦。先幫使用者判斷,再促成購買;可以有熱情,但不能油;可以講價值,但不能失真。
+  </div>
+
+  <h3>6.1 三個寫作原則</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:24%">原則</th><th>落地規則</th></tr></thead>
+      <tbody>
+        <tr><td><strong>規格先行,形容詞後置</strong></td><td>先寫 TPU / 8mil / 200x30cm,再寫耐磨、好施工。</td></tr>
+        <tr><td><strong>條列勝過長句</strong></td><td>用全形分隔符「｜」串接重點;主圖單句原則上不超過 12 字。</td></tr>
+        <tr><td><strong>承諾用具體詞</strong></td><td>寫「24H 出貨」,不要寫「超快出貨」;寫「免打孔直上」,不要寫「安裝超簡單」。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>6.2 商品命名公式</h3>
+  <div class="callout">
+    <div class="callout-title">標準公式</div>
+    <div class="callout-body" style="font-family: 'SF Mono', monospace; font-size: 14px;">【品類 / 商品名】規格 ｜ 用途 ｜ 適用情境 ｜ 【JY 眾悅】現貨</div>
+  </div>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:22%">類型</th><th>命名範例</th></tr></thead>
+      <tbody>
+        <tr><td><strong>工具耗材</strong></td><td>【包膜刮板】軟硬雙邊 ｜ 貼膜施工 ｜ 職人常備 ｜ 【JY 眾悅】現貨</td></tr>
+        <tr><td><strong>鍍膜清潔</strong></td><td>【鍍膜噴劑】500ml ｜ 車漆保養 ｜ 洗車後使用 ｜ 【JY 眾悅】現貨</td></tr>
+        <tr><td><strong>車用配件</strong></td><td>【車用收納盒】適用 Tesla Model Y ｜ 中央扶手 ｜ 免工具安裝 ｜ 【JY 眾悅】現貨</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>6.3 推薦用字 vs 禁用字</h3>
+  <div class="voice-grid">
+    <div class="voice-card ok">
+      <div class="voice-card-label">推薦使用 · 效率承諾</div>
+      <div class="voice-card-text">現貨、24H 出貨、隔日到貨、直上安裝、免打孔</div>
+    </div>
+    <div class="voice-card no">
+      <div class="voice-card-label">禁止使用 · 效率承諾</div>
+      <div class="voice-card-text">超快、神速、瞬間到貨、最快</div>
+    </div>
+    <div class="voice-card ok">
+      <div class="voice-card-label">推薦使用 · 品質描述</div>
+      <div class="voice-card-text">耐磨、耐黃變、原料進口、實測通過</div>
+    </div>
+    <div class="voice-card no">
+      <div class="voice-card-label">禁止使用 · 品質描述</div>
+      <div class="voice-card-text">完美、頂級、神級、超越原廠</div>
+    </div>
+    <div class="voice-card ok">
+      <div class="voice-card-label">推薦使用 · 效能宣稱</div>
+      <div class="voice-card-text">防潑水、抗 UV(依實測值)、易清潔</div>
+    </div>
+    <div class="voice-card no">
+      <div class="voice-card-label">禁止使用 · 效能宣稱</div>
+      <div class="voice-card-text">永久防刮、永不脫膠、保證不退色、100% 防護</div>
+    </div>
+    <div class="voice-card ok">
+      <div class="voice-card-label">推薦使用 · 比較類</div>
+      <div class="voice-card-text">規格比較、使用情境比較</div>
+    </div>
+    <div class="voice-card no">
+      <div class="voice-card-label">禁止使用 · 比較類</div>
+      <div class="voice-card-text">最低價、全網第一、最強、唯一、市佔第一</div>
+    </div>
+    <div class="voice-card ok">
+      <div class="voice-card-label">推薦使用 · 他牌關係</div>
+      <div class="voice-card-text">適用 OO 車型、相容 OO 規格、非原廠配件</div>
+    </div>
+    <div class="voice-card no">
+      <div class="voice-card-label">禁止使用 · 他牌關係</div>
+      <div class="voice-card-text">OO 原廠、OO 官方認證、OO 授權</div>
+    </div>
+  </div>
+
+  <h3>6.4 文案修正範例</h3>
+  <p style="color: var(--text-mute); font-size: 14px; margin-bottom: 8px;">切換弱 / 強對照,理解規格先行原則。</p>
+  <div class="copy-flip">
+    <div class="copy-flip-controls">
+      <button class="copy-flip-btn" data-flip="bad">弱範例</button>
+      <button class="copy-flip-btn active" data-flip="good">強範例</button>
+    </div>
+    <div class="copy-flip-content">
+      <div class="copy-flip-card bad" data-flip-card="bad">
+        <div class="copy-flip-headline">神級鍍膜!永久防刮!全網最強!</div>
+        <div class="copy-flip-note">判斷:誇大效能、絕對詞、比較詞。三項都觸發 v1.4 第 11 章高風險詞庫。</div>
+      </div>
+      <div class="copy-flip-card good active" data-flip-card="good">
+        <div class="copy-flip-headline">鍍膜噴劑 500ml ｜ 車漆保養 ｜ 洗車後使用</div>
+        <div class="copy-flip-note">判斷:規格先行、用途清楚、無未證明承諾。符合 6.1 三原則。</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>6.5 客服與詳情頁可用短句</h3>
+  <ul class="checklist">
+    <li>購買前請確認車型年份、安裝位置與尺寸;若不確定,可先提供照片或車型資訊詢問。</li>
+    <li>本商品非原廠配件,車型名稱僅作適用性說明。</li>
+    <li>現貨與出貨時效以賣場頁面標示為準;大量採購可先詢問庫存。</li>
+    <li>規格與使用方式請依商品頁說明操作;特殊材質或施工環境建議先小範圍測試。</li>
+  </ul>
+</section>
+
+
+<!-- ============================================================
+     SECTION 07 — PHOTOGRAPHY
+     ============================================================ -->
+<section id="s07">
+  <div class="section-eyebrow">
+    <span class="section-num">07</span>
+    <span class="section-en">Shot List, Lighting and Retouching Rules</span>
+  </div>
+  <h2 class="section-title">Photography 攝影風格</h2>
+  <div class="section-lead">
+    眾悅影像要幫使用者判斷商品,不以氣氛照取代資訊。基本方向:黑灰背景、高對比商品照、職人或手部操作情境、近距離材質與做工特寫、低飽和冷灰色調。
+  </div>
+
+  <h3>7.1 背景與品類對應</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:24%">背景類型</th><th style="width:32%">適用品類</th><th>規格</th></tr></thead>
+      <tbody>
+        <tr><td><strong>純白 / 淺灰底</strong></td><td>工具耗材、車用精品、配件</td><td>底色 #FFFFFF 或 #F3F7FA;商品置中;自然柔光。</td></tr>
+        <tr><td><strong>深色 / 情境底</strong></td><td>鍍膜清潔、膜料貼膜、施工現場</td><td>底色 #103057 或實拍施工現場;側光營造光澤與職人感。</td></tr>
+        <tr><td><strong>黑灰車庫 / 工具桌</strong></td><td>職人操作、工具組、安裝步驟</td><td>低飽和、乾淨背景,保留可上字負空間。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>7.2 拍攝規範</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:18%">項目</th><th>規範</th></tr></thead>
+      <tbody>
+        <tr><td><strong>光線</strong></td><td>色溫 5000-5500K,柔光箱或自然窗光,避免強閃光與冷藍色調。</td></tr>
+        <tr><td><strong>構圖</strong></td><td>商品佔畫面 60-70%,四邊安全邊距 ≥ 80px(1080×1080 基準)。</td></tr>
+        <tr><td><strong>角度</strong></td><td>3/4 透視為主,補 1 張正面與 1 張細節;瓶罐類需確保瓶身標籤可讀。</td></tr>
+        <tr><td><strong>色調</strong></td><td>低飽和、乾淨、工業感;建議建立 JY Standard LUT / Lightroom Preset。</td></tr>
+        <tr><td><strong>後製</strong></td><td>可調整曝光、對比、白平衡與局部清潔;不可改變商品結構、顏色或功能呈現。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>7.3 每商品必拍 6 張原始素材</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:8%">#</th><th style="width:22%">素材</th><th style="width:42%">內容</th><th>主要用途</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>情境照</strong></td><td>施工現場、車內擺放、職人手部動作。</td><td>用於情境圖或社群圖。</td></tr>
+        <tr><td>2</td><td><strong>商品正面平拍</strong></td><td>白底、無修圖、可清楚看見商品輪廓。</td><td>白底主圖或平台副圖。</td></tr>
+        <tr><td>3</td><td><strong>細節特寫</strong></td><td>材質紋理、零件接縫、瓶身標籤、接口。</td><td>材質說明、副圖。</td></tr>
+        <tr><td>4</td><td><strong>尺寸對照</strong></td><td>與手、硬幣、A4 紙、尺、車內位置等已知比例。</td><td>規格尺寸圖。</td></tr>
+        <tr><td>5</td><td><strong>痛點對比</strong></td><td>Before / After、錯誤用法 vs 正確用法。</td><td>痛點比較圖。</td></tr>
+        <tr><td>6</td><td><strong>使用步驟</strong></td><td>3-4 格分鏡,呈現安裝或施工順序。</td><td>功能拆解或詳情頁長圖。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>7.4 攝影禁忌</h3>
+  <ul class="checklist warn">
+    <li>禁用市售素材庫擺拍照作為主要商品判斷圖。</li>
+    <li>禁用高飽和廉價感濾鏡、抖音特效、霓虹光暈。</li>
+    <li>禁拍他牌商標清楚露出的特寫。</li>
+    <li>禁用人物臉部正面特寫;改用手部、側影或聚焦衣著。</li>
+    <li>禁用過度 HDR、過曝、暗部死黑或看不清商品的情境圖。</li>
+  </ul>
+</section>
+
+<!-- ============================================================
+     SECTION 08 — GRAPHICS & ICONS
+     ============================================================ -->
+<section id="s08">
+  <div class="section-eyebrow">
+    <span class="section-num">08</span>
+    <span class="section-en">Visual Components and Icon System</span>
+  </div>
+  <h2 class="section-title">Graphics / Icons 圖形與圖示</h2>
+  <div class="section-lead">
+    圖形語彙的任務是把資訊分層,而不是裝飾版面。眾悅固定使用斜切矩形、模組化分隔線、機能感標籤、細線箭頭與 Lucide 線性圖示系統。
+  </div>
+
+  <h3>8.1 視覺元素規範</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:22%">元素</th><th>規範</th></tr></thead>
+      <tbody>
+        <tr><td><strong>頂部品類色條</strong></td><td>高度 60-80px,依品類分區色填色:工具 #383838、鍍膜 #45A8A8、膜料 #A187C9、配件 #D6A94A、其他 #D15858。</td></tr>
+        <tr><td><strong>圓角矩形 Tag</strong></td><td>圓角 8px,深底白字;用於規格、現貨、24H、適用位置。</td></tr>
+        <tr><td><strong>信任徽章</strong></td><td>直徑 96-120px,Trust Pine Green 或 Action Orange Red 底白字 / 深色字;每張圖最多 1 顆主徽章。</td></tr>
+        <tr><td><strong>分隔線</strong></td><td>1px #E0E0E0,或 4px 短直線作章節指示。</td></tr>
+        <tr><td><strong>JY 浮水印</strong></td><td>版本 C,透明度 70-85%;右上或右下固定位置;不可壓過商品。</td></tr>
+        <tr><td><strong>導引線 / 箭頭</strong></td><td>1.5-2px,圓角端點;用於尺寸、接口、安裝位置說明。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>8.2 Tag 樣式範例</h3>
+  <div class="callout">
+    <div class="callout-title">商品圖常用 Tag</div>
+    <div class="callout-body">
+      <div class="spec-tags" style="margin-top: 8px;">
+        <span class="spec-tag action">現貨</span>
+        <span class="spec-tag action">24H 出貨</span>
+        <span class="spec-tag trust">隔日到貨</span>
+        <span class="spec-tag trust">實體門市</span>
+        <span class="spec-tag trust">雲端發票</span>
+        <span class="spec-tag promo">限時優惠</span>
+        <span class="spec-tag promo">滿額免運</span>
+        <span class="spec-tag navy">適用 Model Y</span>
+        <span class="spec-tag navy">8mil 厚度</span>
+        <span class="spec-tag navy">500ml</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>8.3 Icon 系統</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:18%">項目</th><th>規範</th></tr></thead>
+      <tbody>
+        <tr><td><strong>圖示集</strong></td><td>固定使用 Lucide 系統;或自製補充圖示。</td></tr>
+        <tr><td><strong>風格</strong></td><td>線性圖示,Stroke 2px,圓角端點,無填色;同一組素材維持一致筆畫。</td></tr>
+        <tr><td><strong>尺寸</strong></td><td>商品圖 64×64 px;標籤內 24×24 px;UI 介面 16×16 px。</td></tr>
+        <tr><td><strong>顏色</strong></td><td>JY Deep Navy #103057、JY Steel Blue Grey #647E8F、白色、Action Orange Red #FF653F;特殊情境可用品類分區色。</td></tr>
+        <tr><td><strong>輸出</strong></td><td>正式交付 SVG;快速使用可另存 PNG 512px 透明底。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>8.4 第一階段必備 12 個 Icon</h3>
+  <p style="color: var(--text-mute); font-size: 14px; margin-bottom: 8px;">以下為對應 Lucide 圖示;實際商品圖使用時需依 8.3 規範套用 stroke 與顏色。</p>
+  <div class="icon-grid">
+    <div class="icon-tile"><i data-lucide="package-check"></i><div class="icon-label">現貨</div><div class="icon-name">package-check</div></div>
+    <div class="icon-tile"><i data-lucide="truck"></i><div class="icon-label">24H 出貨</div><div class="icon-name">truck</div></div>
+    <div class="icon-tile"><i data-lucide="zap"></i><div class="icon-label">隔日到貨</div><div class="icon-name">zap</div></div>
+    <div class="icon-tile"><i data-lucide="store"></i><div class="icon-label">實體門市</div><div class="icon-name">store</div></div>
+    <div class="icon-tile"><i data-lucide="receipt"></i><div class="icon-label">雲端發票</div><div class="icon-name">receipt</div></div>
+    <div class="icon-tile"><i data-lucide="star"></i><div class="icon-label">五星評價</div><div class="icon-name">star</div></div>
+    <div class="icon-tile"><i data-lucide="wrench"></i><div class="icon-label">直上安裝</div><div class="icon-name">wrench</div></div>
+    <div class="icon-tile"><i data-lucide="circle-slash"></i><div class="icon-label">免打孔</div><div class="icon-name">circle-slash</div></div>
+    <div class="icon-tile"><i data-lucide="car"></i><div class="icon-label">適用車型</div><div class="icon-name">car</div></div>
+    <div class="icon-tile"><i data-lucide="ruler"></i><div class="icon-label">規格尺寸</div><div class="icon-name">ruler</div></div>
+    <div class="icon-tile"><i data-lucide="list-checks"></i><div class="icon-label">施工步驟</div><div class="icon-name">list-checks</div></div>
+    <div class="icon-tile"><i data-lucide="shield-check"></i><div class="icon-label">保固憑證</div><div class="icon-name">shield-check</div></div>
+  </div>
+
+  <h3>8.5 版面格線與間距</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:20%">版型</th><th>規範</th></tr></thead>
+      <tbody>
+        <tr><td><strong>商品圖</strong></td><td>1080×1080;12 欄;邊界 60px;中央商品安全區約 620×620px。</td></tr>
+        <tr><td><strong>社群直式</strong></td><td>1080×1350;12 欄;邊界 60px;上方主標區、中央商品區、下方 CTA。</td></tr>
+        <tr><td><strong>限時動態</strong></td><td>1080×1920;4 區塊;頂部避開平台 UI;底部 CTA 保留安全距。</td></tr>
+        <tr><td><strong>網站 / 簡報</strong></td><td>桌機 12 欄、手機 4 欄;間距尺度 4 / 8 / 16 / 24 / 32 / 48 px。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 09 — CHARTS
+     ============================================================ -->
+<section id="s09">
+  <div class="section-eyebrow">
+    <span class="section-num">09</span>
+    <span class="section-en">Tables, Comparison and Decision Support</span>
+  </div>
+  <h2 class="section-title">Charts 資料視覺化</h2>
+  <div class="section-lead">
+    眾悅的資料視覺化應服務「判斷」:讓買家知道尺寸、容量、材質、適用範圍與購買前注意事項。避免用圖表製造不必要的競品比較或誤導。
+  </div>
+
+  <h3>9.1 圖表規範</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:22%">項目</th><th>規範</th></tr></thead>
+      <tbody>
+        <tr><td><strong>規格表表頭</strong></td><td>JY Deep Navy #103057 底 + 白字 Bold。</td></tr>
+        <tr><td><strong>奇偶列交錯</strong></td><td>#FFFFFF / #F3F7FA。</td></tr>
+        <tr><td><strong>強調列</strong></td><td>使用 Alert Red #E0103C 1px 細邊框,不大面積鋪紅。</td></tr>
+        <tr><td><strong>比較圖</strong></td><td>左欄可用 Trust Pine Green 勾勾;右欄用灰色叉叉;禁止直接寫出他牌品牌名做對照。</td></tr>
+        <tr><td><strong>尺寸圖</strong></td><td>使用細線箭頭與數字標註;標示單位 mm / cm / ml / g,避免只有圖片沒有數值。</td></tr>
+        <tr><td><strong>相容性表</strong></td><td>列「適用」「不確定需詢問」「不適用」三種狀態,避免模糊用語。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>9.2 必備圖表模板</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:22%">模板</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td><strong>尺寸 / 容量表</strong></td><td>衣長式表格不適用車品;應改為長、寬、高、容量、厚度、數量、適用位置。</td></tr>
+        <tr><td><strong>內容物清單</strong></td><td>商品 + 配件 + 數量,搭配 icon;避免買家誤會套組內容。</td></tr>
+        <tr><td><strong>適用範圍表</strong></td><td>車型、年份、安裝位置、版本差異、是否需自行確認。</td></tr>
+        <tr><td><strong>施工步驟圖</strong></td><td>3-4 格;每格 1 個動作;最後加注意事項。</td></tr>
+        <tr><td><strong>選購引導圖</strong></td><td>依尺寸、部位、容量、用途導購;不要以車廠 Logo 當分類。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>9.3 視覺檢核</h3>
+  <ul class="checklist warn">
+    <li>表格縮到手機寬度仍可讀,資訊圖若小字不可讀,需拆成兩張。</li>
+    <li>紅色只用於注意事項、限量、新品或錯誤提示,不作大面積底色。</li>
+    <li>比較圖禁止直接貶低他牌;可比較規格與使用情境,但不可聲稱全網第一、唯一、最強。</li>
+    <li>所有單位需一致;同張圖不要混用 mm、cm、inch,除非另列對照。</li>
+  </ul>
+</section>
+
+
+<!-- ============================================================
+     SECTION 10 — BRAND APPLICATIONS
+     ============================================================ -->
+<section id="s10">
+  <div class="section-eyebrow">
+    <span class="section-num">10</span>
+    <span class="section-en">Marketplace, Social, Print and Presentation</span>
+  </div>
+  <h2 class="section-title">Brand Applications 品牌應用</h2>
+  <div class="section-lead">
+    本章規範第一階段必落地接觸點,讓眾悅在賣場、社群、廣告、簡報與印刷物上維持一致的黑灰白機能感與 Primary Action 焦點。
+  </div>
+
+  <h3>10.1 應用接觸點規格</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:18%">應用項目</th><th style="width:24%">尺寸與輸出</th><th>版面配置</th><th style="width:14%">備註</th></tr></thead>
+      <tbody>
+        <tr><td><strong>蝦皮商品主圖</strong></td><td>1080×1080;JPG;sRGB</td><td>品牌色條、商品主視覺、主標、規格與單一 CTA;主圖右上 JY 版本 B。</td><td>第一優先</td></tr>
+        <tr><td><strong>商品詳情頁長圖</strong></td><td>寬 1080;高度依內容</td><td>品牌簽名、主視覺、3 點特色、規格、尺寸、FAQ、售後。</td><td>每段之間留白</td></tr>
+        <tr><td><strong>賣場 Banner</strong></td><td>1200×400 / 1200×628</td><td>深色 hero + 商品圖 + 短標 + 單一 CTA。</td><td>橘色只作行動焦點</td></tr>
+        <tr><td><strong>社群貼文</strong></td><td>1080×1350 / 1080×1080 / 1080×1920</td><td>品牌橫條、產品主視覺、短標、3 個賣點、單一 CTA。</td><td>每張只講一個主題</td></tr>
+        <tr><td><strong>廣告素材</strong></td><td>1200×628 / 1080×1080 / 300×250 / 970×250</td><td>大產品圖 + 短標 + 價格 / 優惠 + 單一 CTA;Promo 色只用於促銷訊號。</td><td>避免紅橘綠同時大量出現</td></tr>
+        <tr><td><strong>簡報</strong></td><td>16:9;1920×1080;PPTX / PDF</td><td>封面深色 hero;內頁黑白灰 + Primary Action 重點;固定章節模組。</td><td>需含封面、章節、產品、比較、流程、結尾頁</td></tr>
+        <tr><td><strong>名片</strong></td><td>90×54 mm;PDF Print 300 DPI</td><td>正面黑底反白 Logo;背面資訊或 QR。</td><td>不加背景紋理</td></tr>
+        <tr><td><strong>包裝貼紙 / 封箱貼</strong></td><td>依實際尺寸;PDF Print / PNG</td><td>JY Mark + 品牌短句 + QR / 客服資訊。</td><td>小尺寸優先用版本 C</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>10.2 對外露出優先訊息</h3>
+  <ul class="checklist">
+    <li><strong>商品圖</strong>:品類、規格、現貨、相容性。</li>
+    <li><strong>社群</strong>:單一情境 + 1 個判斷重點 + 1 個 CTA。</li>
+    <li><strong>簡報</strong>:品牌定位、品類結構、供貨 / 交付能力、案例或流程。</li>
+    <li><strong>包裝</strong>:品牌識別、客服入口、售後提醒、非原廠配件必要註記。</li>
+  </ul>
+
+  <h3>10.3 品牌短標語庫</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:55%">標語</th><th>建議場景</th></tr></thead>
+      <tbody>
+        <tr><td><strong>為每一次升級,先準備好全部。</strong></td><td>KV / Banner</td></tr>
+        <tr><td><strong>先看懂,再下單。</strong></td><td>商品頁 / 社群</td></tr>
+        <tr><td><strong>規格講清楚,選擇就快。</strong></td><td>詳情頁 / 簡報</td></tr>
+        <tr><td><strong>不是更炫,是更對。</strong></td><td>品牌形象 / 社群</td></tr>
+        <tr><td><strong>買得齊,裝得準,用得更安心。</strong></td><td>信任圖 / 詳情頁</td></tr>
+        <tr><td><strong>該有的規格,一次講明白。</strong></td><td>規格圖 / 產品頁</td></tr>
+        <tr><td><strong>給車主的效率,給職人的把握。</strong></td><td>B2B / 職人場景</td></tr>
+        <tr><td><strong>選對配件,少走一次冤枉路。</strong></td><td>FAQ / 選購引導</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 11 — TRADEMARK & RISK (INTERACTIVE)
+     ============================================================ -->
+<section id="s11">
+  <div class="section-eyebrow">
+    <span class="section-num">11</span>
+    <span class="section-en">Trademark, Copyright and Claim Risk</span>
+  </div>
+  <h2 class="section-title">商標、版權與高風險詞庫</h2>
+  <div class="section-lead">
+    車廠名稱只用於「適用性說明」,不可用於品牌主導、官方背書、聯名暗示或視覺模仿。所有效能、修復、保固、授權與比較宣稱,都必須有可保存的書面證明。
+  </div>
+
+  <h3>11.1 允許 vs 禁止對照</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:18%">項目</th><th style="width:41%">禁止</th><th>允許</th></tr></thead>
+      <tbody>
+        <tr><td><strong>商品名</strong></td><td>Tesla 原廠杯架、BMW 官方鑰匙圈</td><td>適用 Tesla Model 3 杯架、BMW G20 相容鑰匙圈</td></tr>
+        <tr><td><strong>授權聲明</strong></td><td>原廠認證、官方授權、官方合作</td><td>不寫任何授權字眼;必要時寫「非原廠配件」。</td></tr>
+        <tr><td><strong>商標露出</strong></td><td>商品圖中他牌 Logo 占畫面 &gt; 5%、清晰特寫</td><td>車型剪影、隱去 Logo 的局部、文字標示車型代碼。</td></tr>
+        <tr><td><strong>檔案命名</strong></td><td><code>BMW_M3_xxx.jpg</code>、<code>TESLA_Y_xxx.jpg</code></td><td><code>JY-G20-MIRROR-M1-v1.jpg</code>、<code>JY-TM3-CUP-M1-v1.jpg</code></td></tr>
+        <tr><td><strong>關鍵字標籤</strong></td><td>#BMW原廠 #Tesla官方</td><td>#G20相容 #TM3配件 #適用車型</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>11.2 灰色地帶三問</h3>
+  <div class="callout warn">
+    <div class="callout-title">下筆前自問三題,任何一題答「是」就刪掉。</div>
+    <div class="callout-body">
+      1. 這個宣稱是否有書面證明?沒有,不寫。<br>
+      2. 這個宣稱是否包含 100%、絕對、永久、最?有,不寫。<br>
+      3. 這個宣稱是否會讓消費者誤以為與他牌有授權關係?會,不寫。
+    </div>
+  </div>
+
+  <h3>11.3 標準免責註記</h3>
+  <div class="callout">
+    <div class="callout-title">標準註記</div>
+    <div class="callout-body">本商品非原廠配件,車型名稱僅作適用性說明,購買前請確認年份、車型與安裝位置。</div>
+  </div>
+
+  <h3>11.4 高風險詞庫查詢</h3>
+  <p style="color: var(--text-mute); font-size: 14px; margin-bottom: 8px;">輸入懷疑的字詞,即時找到改寫方向。</p>
+  <div class="risk-tool">
+    <input type="text" class="risk-search" id="riskSearch" placeholder="輸入高風險詞,如「永久」「100%」「原廠」">
+    <div class="risk-results" id="riskResults"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     APPENDIX — OPEN ITEMS
+     ============================================================ -->
+<section id="sA">
+  <div class="section-eyebrow">
+    <span class="section-num">附錄</span>
+    <span class="section-en">Open Items and Temporary Standards</span>
+  </div>
+  <h2 class="section-title">待補資料與可先採用的暫定規範</h2>
+  <div class="section-lead">
+    補上 0.2 表格所列「仍待補」項目的清單、暫行替代方案與檔名規則,讓品牌、設計與營運在正式檔案到位前仍有可執行的標準。
+  </div>
+
+  <h3>A.1 待補品牌資產清單</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:22%">資產項目</th><th style="width:10%">狀態</th><th>暫定替代方案</th><th style="width:18%">建議補齊期限</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Pantone 色票對應</strong></td><td>待補</td><td>印刷暫以 CMYK 換算值打樣,送印前以印廠 ICC profile 校正。</td><td>首次印刷前完成</td></tr>
+        <tr><td><strong>Noto Sans TC 授權文件</strong></td><td>待補</td><td>確認 SIL Open Font License 條件,完成 FONT_LICENSE_DOC 留存。</td><td>v1.5 前完成</td></tr>
+        <tr><td><strong>攝影 LUT / Lightroom Preset</strong></td><td>待補</td><td>外包攝影暫以 7.1 拍攝規範文字版本溝通;內部後製手動調色。</td><td>首批商品上架後完成</td></tr>
+        <tr><td><strong>正式 SVG Icon Set</strong></td><td>待補</td><td>暫從 Lucide 官方下載個別 SVG;命名前綴 <code>JY_ic_xxx.svg</code>。</td><td>v1.5 前完成第一批 12 個</td></tr>
+        <tr><td><strong>品牌應用模板(Canva / PPTX)</strong></td><td>待補</td><td>依 08 與 10 章規範手動建版;每完成一套加入共享範本庫。</td><td>依應用優先順序滾動補齊</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>A.2 暫定執行規範</h3>
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th style="width:18%">情境</th><th>暫行做法</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Canva 設計</strong></td><td>Logo 統一使用 PNG 高解析版本,建立 Brand Kit 並鎖定本指南 8 色主色 / 狀態色 + 5 色品類色,共 13 色;Canva 字體選 Noto Sans TC,字重對應 5 章規範。</td></tr>
+        <tr><td><strong>蝦皮主圖</strong></td><td>依 10 章規格輸出 1080×1080 JPG sRGB;主圖右上固定貼版本 B Logo;品類色條依品類分區色填色。</td></tr>
+        <tr><td><strong>簡報製作</strong></td><td>PPT / Keynote 模板未到位前,沿用 04 / 05 / 08 章色彩與字體規範;封面用 #103057 底 + 反白 Logo。</td></tr>
+        <tr><td><strong>印刷輸出</strong></td><td>Pantone 未補齊前,印刷送印時必須打樣校色,並以 04 章 CMYK 值作為基準;校樣留檔備查。</td></tr>
+        <tr><td><strong>攝影外包</strong></td><td>提供 7.1 拍攝規範文字版 + 樣張參考;LUT 未到位前要求攝影師交付 RAW + JPG,由內部統一調色。</td></tr>
+        <tr><td><strong>Icon 選用</strong></td><td>從 Lucide 官網下載 SVG,依 8.3 規範改 stroke 與顏色;不混用其他圖示集。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="row">
+    <div>
+      <strong style="color: var(--jy-navy);">眾悅車用精品 JY · Brand Guidelines v1.4</strong><br>
+      發行單位 · 悅聯集團 │ 品牌策略部 B02<br>
+      更新日期 · 2026 / 05 / 22<br>
+      適用範圍 · 蝦皮賣場 jy2354777、商品主圖與副圖、賣場 Banner、商品詳情頁、社群、簡報、包裝貼紙、封箱貼、出貨小卡與對外品牌應用素材<br>
+      文件使用者 · 品牌策略、設計、營運、採購、客服、社群、外包設計與攝影協力
+    </div>
+  </div>
+</footer>
+
+</div><!-- /.main-inner -->
+</main><!-- /.main -->
+</div><!-- /.app -->
+
+
+<script>
+/* ============================================================
+   JY Brand Guidelines v1.4 — Interactions
+   ============================================================ */
+
+// ============================================================
+// DATA
+// ============================================================
+const LOGO_DATA = {
+  '01': {
+    name: 'A 主標準版',
+    usage: '內容:JY 圖標 + Crafting Brilliance + 眾悅車用精品。用途:官方封面、賣場 Banner、品牌文件、門市與正式對外露出。',
+    minSize: '螢幕 ≥ 200px / 印刷 ≥ 40mm'
+  },
+  '02': {
+    name: 'B 橫式標語版',
+    usage: '內容:JY 圖標 + Crafting Brilliance。用途:商品主圖、社群方形圖、品牌浮水印、需要保留英文識別但不放中文標準字的版面。',
+    minSize: '螢幕 ≥ 120px / 印刷 ≥ 25mm'
+  },
+  '03': {
+    name: 'C 純圖標版',
+    usage: '內容:JY 字母交疊圖形標。用途:favicon、頭像、小尺寸 icon、封箱貼、淡化浮水印與背景紋理。',
+    minSize: '螢幕 ≥ 48px / 印刷 ≥ 10mm'
+  },
+  '04': {
+    name: 'D 上下完整版',
+    usage: '內容:JY 圖標 + Crafting Brilliance + 眾悅車用精品,上下置中排列。用途:方形版面、貼紙、圓形章牌、包裝小卡與對稱構圖。',
+    minSize: '螢幕 ≥ 180px / 印刷 ≥ 35mm'
+  },
+  '05': {
+    name: 'E 理念完整版',
+    usage: '內容:JY 圖標 +「為車主與職人 打開每一分光采」+ 眾悅車用精品。用途:品牌形象頁、簡報封面、活動主視覺;因小字較多,不建議用於縮圖。',
+    minSize: '螢幕 ≥ 240px / 印刷 ≥ 50mm'
+  },
+  '06': {
+    name: 'F 理念簡化版',
+    usage: '內容:JY 圖標 +「為車主與職人 打開每一分光采」。用途:品牌故事、簡報過場、情境照浮水印;不可取代主標準版作正式對外識別。',
+    minSize: '螢幕 ≥ 160px / 印刷 ≥ 35mm'
+  }
+};
+
+const COLOR_MAIN = [
+  { type: 'Primary', name: 'JY Deep Navy', nameZh: '眾悅深海藍', hex: '#103057', rgb: '16, 48, 87', cmyk: '82, 45, 0, 66', usage: '品牌核心色、Logo、封面、主標題、深色區塊', textOnDark: true },
+  { type: 'Secondary', name: 'JY Steel Blue Grey', nameZh: '眾悅鋼藍灰', hex: '#647E8F', rgb: '100, 126, 143', cmyk: '30, 12, 0, 44', usage: '副標、規格文字、輔助說明、分隔線、低權重 icon', textOnDark: true },
+  { type: 'Base', name: 'JY Mist Blue White', nameZh: '眾悅霧藍白', hex: '#F3F7FA', rgb: '243, 247, 250', cmyk: '3, 1, 0, 2', usage: '規格表底色、卡片背景、淡色區塊、斑馬紋', textOnDark: false },
+  { type: 'Neutral', name: 'Paper White', nameZh: '素白', hex: '#FFFFFF', rgb: '255, 255, 255', cmyk: '0, 0, 0, 0', usage: '商品圖背景、文件底色、反白 Logo、主要留白', textOnDark: false },
+  { type: 'Action', name: 'Action Orange Red', nameZh: '行動橘', hex: '#FF653F', rgb: '255, 101, 63', cmyk: '0, 60, 75, 0', usage: 'CTA、現貨、24H、購買引導、重點標籤', textOnDark: false },
+  { type: 'Promo', name: 'Promo Amber Yellow', nameZh: '促銷黃', hex: '#FDC54D', rgb: '253, 197, 77', cmyk: '0, 22, 70, 1', usage: '限時活動、折扣、滿額、免運、促銷標籤', textOnDark: false },
+  { type: 'Alert', name: 'Alert Red', nameZh: '警示紅', hex: '#E0103C', rgb: '224, 16, 60', cmyk: '0, 93, 73, 12', usage: '警示、注意事項、錯誤使用、庫存限制', textOnDark: true },
+  { type: 'Trust', name: 'Trust Pine Green', nameZh: '信任綠', hex: '#457D59', rgb: '69, 125, 89', cmyk: '45, 0, 29, 51', usage: '實體門市、快速出貨、保固、客服、評價', textOnDark: true }
+];
+
+const COLOR_CAT = [
+  { type: '工具耗材', name: 'Tool Graphite', nameZh: '工具墨灰', hex: '#383838', rgb: '56, 56, 56', cmyk: '0, 0, 0, 78', usage: '刮板、海綿、噴瓶、手套、小五金、通用耗材;穩重、耐用、工具感。', textOnDark: true },
+  { type: '鍍膜清潔', name: 'Detail Aqua Teal', nameZh: '鍍膜青', hex: '#45A8A8', rgb: '69, 168, 168', cmyk: '59, 0, 0, 34', usage: '洗車精、鍍膜液、清潔劑、除膠劑、保養噴劑;潔淨、清爽、化學專業感。', textOnDark: true },
+  { type: '膜料 / 貼膜', name: 'Film Lavender Purple', nameZh: '膜料紫', hex: '#A187C9', rgb: '161, 135, 201', cmyk: '20, 33, 0, 21', usage: 'TPU 犀牛皮、改色膜、燈膜、貼膜前導劑;膜料光澤、施工專業。', textOnDark: false },
+  { type: '車用精品 / 配件', name: 'Accessory Brass Gold', nameZh: '精品銅', hex: '#D6A94A', rgb: '214, 169, 74', cmyk: '0, 21, 65, 16', usage: '收納盒、杯架、掛勾、車用小物、內裝配件;精緻、實用、配件感。', textOnDark: false },
+  { type: '其他', name: 'Other Brick Red', nameZh: '其他磚紅', hex: '#D15858', rgb: '209, 88, 88', cmyk: '0, 58, 58, 18', usage: '無法歸入前四類、臨時活動或複合型商品;僅作補充分區,不作品牌主色。', textOnDark: true }
+];
+
+const CAT_MAP = {
+  tool: { name: 'Tool Graphite 工具墨灰', hex: '#383838', rgb: '56, 56, 56', cmyk: '0, 0, 0, 78', text: '刮板、海綿、噴瓶、手套、小五金、通用耗材;穩重、耐用、工具感。', example: '【包膜刮板】軟硬雙邊', tag: '工具耗材' },
+  detail: { name: 'Detail Aqua Teal 鍍膜青', hex: '#45A8A8', rgb: '69, 168, 168', cmyk: '59, 0, 0, 34', text: '洗車精、鍍膜液、清潔劑、除膠劑、保養噴劑;潔淨、清爽、化學專業感。', example: '【鍍膜噴劑】500ml', tag: '鍍膜清潔' },
+  film: { name: 'Film Lavender Purple 膜料紫', hex: '#A187C9', rgb: '161, 135, 201', cmyk: '20, 33, 0, 21', text: 'TPU 犀牛皮、改色膜、燈膜、貼膜前導劑;膜料光澤、施工專業。', example: '【TPU 犀牛皮】8mil', tag: '膜料 / 貼膜' },
+  accessory: { name: 'Accessory Brass Gold 精品銅', hex: '#D6A94A', rgb: '214, 169, 74', cmyk: '0, 21, 65, 16', text: '收納盒、杯架、掛勾、車用小物、內裝配件;精緻、實用、配件感。', example: '【車用收納盒】扶手箱', tag: '車用精品' },
+  other: { name: 'Other Brick Red 其他磚紅', hex: '#D15858', rgb: '209, 88, 88', cmyk: '0, 58, 58, 18', text: '無法歸入前四類、臨時活動或複合型商品;僅作補充分區,不作品牌主色。', example: '【複合套組】限定組合', tag: '其他' }
+};
+
+const RISK_DATA = [
+  { bad: '永久防刮', good: '耐磨、防潑水、易清潔(依實測值或商品標示)。' },
+  { bad: '100% 防護', good: '可降低日常使用磨損風險;實際效果依使用環境。' },
+  { bad: '原廠認證', good: '非原廠配件;適用 OO 車型。' },
+  { bad: '官方授權', good: '非原廠配件;適用 OO 車型。' },
+  { bad: '保證不掉', good: '依正確施工方式與表面狀態安裝。' },
+  { bad: '永不脫落', good: '依正確施工方式與表面狀態安裝。' },
+  { bad: '全網最強', good: '規格比較、使用情境比較、實測通過(需有資料)。' },
+  { bad: '市售第一', good: '規格比較、使用情境比較、實測通過(需有資料)。' },
+  { bad: '神級', good: '依規格與用途具體描述,如「8mil 厚度」「TPU 材質」。' },
+  { bad: '頂級', good: '依規格與用途具體描述,如「原料進口」「實測通過」。' },
+  { bad: '超快出貨', good: '24H 出貨、隔日到貨(依實際出貨時效)。' },
+  { bad: '神速到貨', good: '24H 出貨、隔日到貨(依實際出貨時效)。' },
+  { bad: '修復刮痕', good: '避免使用,除非有正式檢測或書面證明。' },
+  { bad: '還原烤漆', good: '避免使用,除非有正式檢測或書面證明。' },
+  { bad: '恢復如新', good: '避免使用,除非有正式檢測或書面證明。' },
+  { bad: '永不退色', good: '耐黃變、抗 UV(依實測值)。' },
+  { bad: 'Tesla 原廠', good: '適用 Tesla Model X / Y / 3 / S;非原廠配件。' },
+  { bad: 'BMW 官方', good: '適用 BMW G20 / F30 等車型代碼;非原廠配件。' },
+  { bad: '最低價', good: '不寫絕對價格詞;以具體價格或規格比較呈現。' },
+  { bad: '唯一', good: '不寫絕對詞;以規格、容量、用途具體描述。' },
+  { bad: '完美', good: '不寫絕對詞;以規格、實測值具體描述。' },
+  { bad: '絕對', good: '不寫絕對詞;以規格、實測值具體描述。' }
+];
+
+// ============================================================
+// LOGO PREVIEW — Load SVG dynamically
+// ============================================================
+let currentLogoType = '01';
+let currentLogoBg = 'white';
+
+async function loadLogo(type, bg) {
+  const mount = document.getElementById('logoMount');
+  const stage = document.getElementById('logoStage');
+  // file suffix: white bg -> no suffix; navy -> w; mist -> no suffix
+  let suffix = '';
+  if (bg === 'navy') suffix = 'w'; // white logo on navy
+  // else no suffix (deep navy logo on light bg)
+  const filename = `logos/JY_logo_${type}${suffix}.svg`;
+
+  try {
+    const res = await fetch(filename);
+    if (!res.ok) throw new Error('fetch failed');
+    const svg = await res.text();
+    mount.innerHTML = svg;
+    // Force fill color based on bg variant
+    const svgEl = mount.querySelector('svg');
+    if (svgEl) {
+      // Remove embedded style and set fill explicitly
+      const styleEl = svgEl.querySelector('style');
+      if (styleEl) styleEl.remove();
+      const fillColor = (bg === 'navy') ? '#F3F7FA' : '#103057';
+      svgEl.querySelectorAll('path').forEach(p => {
+        p.setAttribute('fill', fillColor);
+        p.removeAttribute('class');
+      });
+    }
+  } catch (e) {
+    // Fallback: show only the C-mark inline SVG with note
+    mount.innerHTML = `<div style="text-align:center;color:${bg==='navy'?'#F3F7FA':'#647E8F'};font-size:14px;padding:40px;">
+      <div style="font-size:11px;letter-spacing:2px;margin-bottom:8px;">FILE NOT FOUND</div>
+      <div style="font-family: monospace;">${filename}</div>
+      <div style="font-size:12px;margin-top:16px;">請確認 logos/ 資料夾與 SVG 檔案已正確上傳</div>
+    </div>`;
+  }
+
+  stage.dataset.bg = bg;
+  // Update info
+  const data = LOGO_DATA[type];
+  document.getElementById('logoUsage').textContent = data.usage;
+  document.getElementById('logoMinSize').textContent = data.minSize;
+  const displayFilename = `JY_logo_${type}${suffix}.svg`;
+  document.getElementById('logoFilename').textContent = displayFilename;
+}
+
+document.getElementById('logoTypeBtns').addEventListener('click', (e) => {
+  if (e.target.classList.contains('logo-btn')) {
+    document.querySelectorAll('#logoTypeBtns .logo-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    currentLogoType = e.target.dataset.type;
+    loadLogo(currentLogoType, currentLogoBg);
+  }
+});
+
+document.getElementById('logoBgBtns').addEventListener('click', (e) => {
+  if (e.target.classList.contains('logo-btn')) {
+    document.querySelectorAll('#logoBgBtns .logo-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    currentLogoBg = e.target.dataset.bg;
+    loadLogo(currentLogoType, currentLogoBg);
+  }
+});
+
+// initial load
+loadLogo('01', 'white');
+
+// ============================================================
+// COLOR SWATCHES — Click to copy
+// ============================================================
+function renderColorGrid(targetId, dataset) {
+  const grid = document.getElementById(targetId);
+  grid.innerHTML = dataset.map(c => {
+    const copyColor = c.textOnDark ? '#F3F7FA' : '#103057';
+    return `
+      <div class="swatch" data-hex="${c.hex}">
+        <div class="swatch-chip" style="background:${c.hex};">
+          <span class="copy-hint" style="color:${copyColor};">點擊複製</span>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-name">${c.nameZh}</div>
+          <div class="swatch-name-en">${c.type ? c.type + ' · ' : ''}${c.name}</div>
+          <div class="swatch-hex">${c.hex} · RGB ${c.rgb}</div>
+          <div class="swatch-hex" style="color:var(--text-mute);font-size:11px;">CMYK ${c.cmyk}</div>
+          <div class="swatch-tags">
+            ${c.usage.split(/[、,]/).slice(0, 3).map(t => `<span class="swatch-tag">${t.trim()}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  grid.querySelectorAll('.swatch').forEach(sw => {
+    sw.addEventListener('click', async () => {
+      const hex = sw.dataset.hex;
+      try {
+        await navigator.clipboard.writeText(hex);
+      } catch (e) {
+        // Fallback for older browsers
+        const ta = document.createElement('textarea');
+        ta.value = hex;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      sw.classList.add('copied');
+      const hint = sw.querySelector('.copy-hint');
+      const origText = hint.textContent;
+      hint.textContent = '已複製 ' + hex;
+      setTimeout(() => {
+        sw.classList.remove('copied');
+        hint.textContent = origText;
+      }, 1400);
+    });
+  });
+}
+renderColorGrid('colorGridMain', COLOR_MAIN);
+renderColorGrid('colorGridCat', COLOR_CAT);
+
+// ============================================================
+// CATEGORY COLOR TABS
+// ============================================================
+document.getElementById('catTabs').addEventListener('click', (e) => {
+  if (e.target.classList.contains('cat-tab')) {
+    const cat = e.target.dataset.cat;
+    const data = CAT_MAP[cat];
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    e.target.classList.add('active');
+    document.getElementById('catBar').style.background = data.hex;
+    document.getElementById('catExampleBar').style.background = data.hex;
+    document.getElementById('catName').textContent = data.name;
+    document.getElementById('catMeta').textContent = `${data.hex} · RGB ${data.rgb} · CMYK ${data.cmyk}`;
+    document.getElementById('catText').textContent = data.text;
+    document.getElementById('catExampleTitle').textContent = data.example;
+    document.getElementById('catExampleTag').textContent = data.tag;
+    document.getElementById('catExampleTag').style.background = data.hex;
+    // Set text color on tag based on contrast
+    const isLight = ['accessory', 'film'].includes(cat);
+    document.getElementById('catExampleTag').style.color = isLight ? '#103057' : '#FFFFFF';
+  }
+});
+
+// ============================================================
+// TYPOGRAPHY LIVE PREVIEW
+// ============================================================
+document.getElementById('typeInput').addEventListener('input', (e) => {
+  const v = e.target.value || '眾悅車用精品 JY · Crafting Brilliance';
+  ['t-h1', 't-h2', 't-tag', 't-label', 't-body'].forEach(id => {
+    document.getElementById(id).textContent = v;
+  });
+});
+
+// ============================================================
+// COPY FLIP (Voice Section 6.4)
+// ============================================================
+document.querySelectorAll('.copy-flip-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const flip = btn.dataset.flip;
+    document.querySelectorAll('.copy-flip-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.copy-flip-card').forEach(c => c.classList.remove('active'));
+    document.querySelector(`[data-flip-card="${flip}"]`).classList.add('active');
+  });
+});
+
+// ============================================================
+// RISK WORD SEARCH (Section 11.4)
+// ============================================================
+function renderRisk(query) {
+  const results = document.getElementById('riskResults');
+  const filtered = query
+    ? RISK_DATA.filter(r => r.bad.includes(query) || r.good.includes(query))
+    : RISK_DATA;
+  if (filtered.length === 0) {
+    results.innerHTML = `<div class="risk-empty">沒有匹配的高風險詞。若你正在使用的字詞讓你不確定,直接套用 11.2 灰色地帶三問檢核。</div>`;
+    return;
+  }
+  results.innerHTML = filtered.map(r => `
+    <div class="risk-item">
+      <div class="risk-bad">${r.bad}</div>
+      <div class="risk-arrow">→</div>
+      <div class="risk-good">${r.good}</div>
+    </div>
+  `).join('');
+}
+renderRisk('');
+document.getElementById('riskSearch').addEventListener('input', (e) => {
+  renderRisk(e.target.value.trim());
+});
+
+// ============================================================
+// LUCIDE ICONS
+// ============================================================
+if (window.lucide) {
+  lucide.createIcons({
+    attrs: {
+      'stroke-width': '2',
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round'
+    }
+  });
+}
+
+// ============================================================
+// SCROLL SPY — Highlight active nav item
+// ============================================================
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-list a');
+
+function updateActiveNav() {
+  let current = '';
+  const scrollY = window.scrollY + 100;
+  sections.forEach(section => {
+    if (section.offsetTop <= scrollY) {
+      current = section.id;
+    }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+}
+window.addEventListener('scroll', updateActiveNav);
+updateActiveNav();
+
+</script>
+
+</body>
+</html>
